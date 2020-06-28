@@ -33,22 +33,16 @@ class MealViewController: MasterViewController {
         listBrain.loadMeals(vc: self)
         tableView.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
-
     }
+    
+    //MARK: Notification to Load Meals if something changes
     
     @objc func loadMealsList(notification: NSNotification){
         listBrain.loadMeals(vc: self)
         self.tableView.reloadData()
     }
     
-    
-    
-//    func didPressButton(_ tag: Int) {
-//        tagOfButtonPressed = tag
-//        performSegue(withIdentifier: "showMealItems", sender: self)
-//        listBrain.selectedMeal = listBrain.mealArray[tagOfButtonPressed]
-//    }
-    
+    //MARK: TableView Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = listBrain.fetchedMealsController.sections![section]
@@ -80,7 +74,6 @@ class MealViewController: MasterViewController {
         
         listBrain.fetchedMealsController.object(at: indexPath).selectedMeal = !listBrain.fetchedMealsController.object(at: indexPath).selectedMeal
         
-        
         let selectedMeal =  listBrain.fetchedMealsController.object(at: indexPath)
         var selectedMealsItems = [Item]()
         
@@ -103,7 +96,7 @@ class MealViewController: MasterViewController {
         
     }
     
-    //Delete swipe from the right to left
+   //MARK: Swipe Actions
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -133,18 +126,6 @@ class MealViewController: MasterViewController {
             tableView.reloadData()
         }
     }
-    
-//    func loadMeals() {
-//        let request : NSFetchRequest<Meal> = Meal.fetchRequest()
-//
-//        do {
-//            listBrain.mealArray = try context.fetch(request)
-//        } catch {
-//            print("Error fetching data from context \(error)")
-//        }
-//
-//
-//    }
 
 }
 

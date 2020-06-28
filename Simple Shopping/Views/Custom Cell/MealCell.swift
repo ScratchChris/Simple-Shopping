@@ -13,8 +13,6 @@ class MealCell: UITableViewCell {
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var editButton: UIButton!
     
-    var cellDelegate: YourCellDelegate?
-    
     var buttonAction: ((Any) -> Void)?
     
     override func awakeFromNib() {
@@ -25,11 +23,6 @@ class MealCell: UITableViewCell {
     
     @IBAction func editButtonPressed(_ sender: Any) {
         self.buttonAction?(sender)
-//        cellDelegate?.didPressButton(sender.tag)
     }
     
-}
-
-protocol YourCellDelegate : class {
-    func didPressButton(_ tag: Int)
 }

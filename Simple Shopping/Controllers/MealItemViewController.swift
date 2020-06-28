@@ -11,7 +11,11 @@ import CoreData
 
 class MealItemViewController: MasterViewController {
     
+    //MARK: Variables
+    
     var listBrain = ListBrain()
+    
+    //MARK: ViewDidLoad and ViewWillAppear
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,25 +32,26 @@ class MealItemViewController: MasterViewController {
 
     }
     
+    //MARK: Notification to load list if something changes
+    
     @objc func loadList(notification: NSNotification) {
         listBrain.loadMealItems(vc: self)
         self.tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let sectionInfo = listBrain.fetchedItemsController.sections![section]
-        return sectionInfo.numberOfObjects
-        
+    //MARK: TableView Methods
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return listBrain.fetchedItemsController.sections?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return listBrain.fetchedItemsController.sections![section].name
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return listBrain.fetchedItemsController.sections?.count ?? 0
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionInfo = listBrain.fetchedItemsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,14 +59,12 @@ class MealItemViewController: MasterViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewCell", for: indexPath)
         
         let item = listBrain.fetchedItemsController.object(at: indexPath)
-        
         cell.textLabel?.text = item.itemName
         
         return cell
-        
     }
     
-    //Delete swipe from the right to left
+    //MARK: Swipe Methods
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

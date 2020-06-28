@@ -16,15 +16,11 @@ class CustomItemCell: UITableViewCell {
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     
-    var indexPathRow : Int?
-    
     var plusAction: ((Any) -> Void)?
     var minusAction: ((Any) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
         itemType.layer.masksToBounds = true
         itemType.layer.cornerRadius = 5
 
@@ -37,8 +33,4 @@ class CustomItemCell: UITableViewCell {
         self.minusAction?(sender)
     }
     
-}
-
-protocol ShoppingCellDelegate : class {
-    func didPressButton(_ tag: Int,_ button: String)
 }

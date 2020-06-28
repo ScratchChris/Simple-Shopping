@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
+class ShoppingListViewController: MasterViewController {
     
     //MARK: Variables
     
@@ -27,17 +27,12 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         title = "List"
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        //Sets up what the back button will say, once Go Shopping has been clicked
+    
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel Shop", style: .plain, target: nil, action: nil)
-        
-        //Adds a Go Shopping bar button to the top right.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Go Shopping!", style: .plain, target: self, action: #selector(goShopping))
         
-        //Brings the tab bar controller back from after goshopping segue has removed it
         self.tabBarController?.tabBar.isHidden = false
         
-        //If the list is changed, the shopping list viewcontroller is updated
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
     }
     
@@ -49,30 +44,25 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
-        
     }
     
-    
+    //MARK: Notification to load list if something changes
     
     @objc func loadList(notification: NSNotification){
         listBrain.loadShoppingList(vc: self)
         self.tableView.reloadData()
     }
     
-    //MARK: Section Information
+    //MARK: Table View Functions
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return listBrain.fetchedItemsController.sections?.count ?? 0
+    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return listBrain.fetchedItemsController.sections![section].name
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return listBrain.fetchedItemsController.sections?.count ?? 0
-
-    }
-    
-    //MARK: Table View Functions
-    
-    //Sets number of rows in the table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let sectionInfo = listBrain.fetchedItemsController.sections![section]
@@ -80,7 +70,6 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         
     }
     
-    //Sets the data contained within each row of the table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> CustomItemCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customItemCell", for: indexPath) as! CustomItemCell
@@ -105,7 +94,6 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         cell.itemName.text = item.itemName
         cell.itemType.text = item.categoryOfItem
         cell.quantity.text = String(item.quantity)
-        cell.indexPathRow = indexPath.row
         cell.plusButton.tag = indexPath.row
         cell.minusButton.tag = indexPath.row
         
@@ -122,31 +110,7 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         return cell
         
     }
-    
-    
-    
-    func didPressButton(_ tag: Int,_ button: String) {
-        
-        print(button)
-        print(tag)
-        
-//        if button == "Plus" {
-//            listBrain.fetchedItemsController.object(at: tag as! IndexPath).quantity += 1
-//        } else {
-//            if listBrain.shoppingListArray[tag].quantity == 1 { return }
-//            else {
-//                listBrain.shoppingListArray[tag].quantity -= 1
-//            }
-//        }
-//        listBrain.saveItems()
-        
-    }
-    
-    
-    
-    
-    
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         listBrain.fetchedItemsController.object(at: indexPath).neededThatWeek = !listBrain.fetchedItemsController.object(at: indexPath).neededThatWeek
@@ -156,9 +120,7 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
-    //MARK: TableView Methods
-    
-    //Delete swipe from the right to left
+    //MARK: Swipe Methods
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -167,15 +129,13 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
                 
                 
                 context.delete(listBrain.fetchedItemsController.object(at: indexPath))
-//                tableView.deleteRows(at: [indexPath], with: .fade)
                 listBrain.saveItems()
                 listBrain.loadShoppingList(vc: self)
                 tableView.reloadData()
             }
         }
     }
-    
-    //     Changes item to staple.
+
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
@@ -196,6 +156,8 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
             return nil
         }
     }
+    
+    //MARK: Go Shopping Button Pressed
     
     @objc func goShopping() {
                 
@@ -221,9 +183,6 @@ class ShoppingListViewController: MasterViewController, ShoppingCellDelegate {
         present(ac, animated: true)
         
     }
-    
-    
-    
     
 }
 

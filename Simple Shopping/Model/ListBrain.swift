@@ -25,7 +25,7 @@ struct ListBrain {
     
     static var viewControllerLive = 0    
     
-    //Saves all items back to CoreData based on updated arrays throughout the app.
+    //MARK: Save Items
     func saveItems() {
         do {
             try context.save()
@@ -34,71 +34,8 @@ struct ListBrain {
         }
     }
     
-    //Loads the meals into the fetchedMealsController
-    mutating func loadMeals(vc: UITableViewController) {
-        
-        if fetchedItemsController == nil {
-            let request = Meal.createFetchRequest()
-            let sort = NSSortDescriptor(key: "mealName", ascending: false)
-            request.sortDescriptors = [sort]
-            request.fetchBatchSize = 20
-            
-            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchedMealsController.delegate = vc as? NSFetchedResultsControllerDelegate
-        }
-        
-        do {
-            try fetchedMealsController.performFetch()
-        } catch {
-            print("Fetch failed")
-        }
-    }
+    //MARK: Loading Items/Meals Methods
     
-    //Loads the meal items into the mealItemArray
-    mutating func loadMealItems(vc: UITableViewController) {
-        
-        if fetchedItemsController == nil {
-            let request = Item.createFetchRequest()
-            let sort = NSSortDescriptor(key: "itemLocation.locationName", ascending: false)
-            request.sortDescriptors = [sort]
-            request.fetchBatchSize = 20
-            
-            fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
-            fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
-        }
-        let predicate = NSPredicate(format: "parentCategory.mealName MATCHES %@", ListBrain.selectedMeal!.mealName)
-        
-        fetchedItemsController.fetchRequest.predicate = predicate
-        
-        do {
-            try fetchedItemsController.performFetch()
-        } catch {
-            print("Fetch failed")
-        }
-        
-    }
-    
-    //Loads the locations into the locationsArray
-    mutating func loadLocations(vc: UITableViewController) {
-        
-        if fetchedLocationsController == nil {
-            let request = Location.createFetchRequest()
-            let sort = NSSortDescriptor(key: "locationName", ascending: false)
-            request.sortDescriptors = [sort]
-            request.fetchBatchSize = 20
-            
-            fetchedLocationsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchedLocationsController.delegate = vc as? NSFetchedResultsControllerDelegate
-        }
-        
-        do {
-            try fetchedLocationsController.performFetch()
-        } catch {
-            print("Fetch failed")
-        }
-    }
-    
-    //Loads the shopping list into the fetchedItemsController
     mutating func loadShoppingList(vc: UITableViewController) {
         
         if fetchedItemsController == nil {
@@ -122,6 +59,67 @@ struct ListBrain {
         
     }
     
+    mutating func loadMeals(vc: UITableViewController) {
+        
+        if fetchedItemsController == nil {
+            let request = Meal.createFetchRequest()
+            let sort = NSSortDescriptor(key: "mealName", ascending: false)
+            request.sortDescriptors = [sort]
+            request.fetchBatchSize = 20
+            
+            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedMealsController.delegate = vc as? NSFetchedResultsControllerDelegate
+        }
+        
+        do {
+            try fetchedMealsController.performFetch()
+        } catch {
+            print("Fetch failed")
+        }
+    }
+    
+    mutating func loadMealItems(vc: UITableViewController) {
+        
+        if fetchedItemsController == nil {
+            let request = Item.createFetchRequest()
+            let sort = NSSortDescriptor(key: "itemLocation.locationName", ascending: false)
+            request.sortDescriptors = [sort]
+            request.fetchBatchSize = 20
+            
+            fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
+            fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
+        }
+        let predicate = NSPredicate(format: "parentCategory.mealName MATCHES %@", ListBrain.selectedMeal!.mealName)
+        
+        fetchedItemsController.fetchRequest.predicate = predicate
+        
+        do {
+            try fetchedItemsController.performFetch()
+        } catch {
+            print("Fetch failed")
+        }
+        
+    }
+    
+    mutating func loadLocations(vc: UITableViewController) {
+        
+        if fetchedLocationsController == nil {
+            let request = Location.createFetchRequest()
+            let sort = NSSortDescriptor(key: "locationName", ascending: false)
+            request.sortDescriptors = [sort]
+            request.fetchBatchSize = 20
+            
+            fetchedLocationsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedLocationsController.delegate = vc as? NSFetchedResultsControllerDelegate
+        }
+        
+        do {
+            try fetchedLocationsController.performFetch()
+        } catch {
+            print("Fetch failed")
+        }
+    }
+    
     mutating func loadGoShopping(vc: UITableViewController) {
         
         var unsortedList = [Item]()
@@ -142,30 +140,10 @@ struct ListBrain {
         
         shoppingListArray = unsortedList.sorted(by: {$0.orderOfPurchase > $1.orderOfPurchase})
         
-        
-//        if fetchedItemsController == nil {
-//            let request = Item.createFetchRequest()
-//            let sort = NSSortDescriptor(key: "orderOfPurchase", ascending: false)
-//            request.sortDescriptors = [sort]
-//            request.fetchBatchSize = 20
-//
-//            fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//            fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
-//        }
-//        let predicate = NSPredicate(format: "selectedThatWeek == true")
-//
-//        fetchedItemsController.fetchRequest.predicate = predicate
-//
-//        do {
-//            try fetchedItemsController.performFetch()
-//        } catch {
-//            print("Fetch failed")
-//        }
     }
     
     //MARK: Adding Items/Meals Methods
     
-    //Add Item alertcontroller called when plus button is pressed on Shopping List
     mutating func addItem(vc : TabBarController) {
         
         let ac = UIAlertController(title: "Add New Item", message: "Enter the name of the item and then press on the location", preferredStyle: .alert)
@@ -203,30 +181,6 @@ struct ListBrain {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         ac.addAction(cancelAction)
-        vc.present(ac, animated: true)
-        
-    }
-    
-    mutating func addLocation(vc: TabBarController) {
-        
-        let ac = UIAlertController(title: "Enter New Kitchen Location", message: nil, preferredStyle: .alert)
-        ac.addTextField()
-        
-        let submitAction = UIAlertAction(title: "Add", style: .default) {
-            [self, weak ac] _ in
-            guard let enteredItem = ac?.textFields?[0].text else { return }
-            
-            let newLocation = Location(context: self.context)
-            newLocation.locationName = enteredItem
-            
-            self.saveItems()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadLocations"), object: nil)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadList"), object: nil)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        ac.addAction(cancelAction)
-        ac.addAction(submitAction)
         vc.present(ac, animated: true)
         
     }
@@ -298,9 +252,35 @@ struct ListBrain {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         ac.addAction(cancelAction)
         vc.present(ac, animated: true)
+    }
+    
+    mutating func addLocation(vc: TabBarController) {
         
+        let ac = UIAlertController(title: "Enter New Kitchen Location", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Add", style: .default) {
+            [self, weak ac] _ in
+            guard let enteredItem = ac?.textFields?[0].text else { return }
+            
+            let newLocation = Location(context: self.context)
+            newLocation.locationName = enteredItem
+            
+            self.saveItems()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadLocations"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadList"), object: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        ac.addAction(cancelAction)
+        ac.addAction(submitAction)
+        vc.present(ac, animated: true)
         
     }
+    
+
+    
+
     
     
     

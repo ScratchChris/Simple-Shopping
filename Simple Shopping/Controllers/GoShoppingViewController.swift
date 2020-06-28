@@ -27,8 +27,6 @@ class GoShoppingViewController : MasterViewController {
 
        }
     
-
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listBrain.shoppingListArray.count
     }

@@ -10,7 +10,6 @@ import UIKit
 
 class GoShoppingCell: UITableViewCell {
     
-    
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemType: UILabel!
     @IBOutlet weak var quantity: UILabel!
