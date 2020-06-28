@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		593FCEBF9FA90AA30AD11D41 /* Pods_Simple_Shopping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97B5290B315D140A15787588 /* Pods_Simple_Shopping.framework */; };
+		E121EBBF2487FB1D0013AFAF /* GoShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E121EBBE2487FB1D0013AFAF /* GoShoppingViewController.swift */; };
+		E121EBC224892D310013AFAF /* GoShoppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E121EBC124892D310013AFAF /* GoShoppingCell.swift */; };
+		E121EBC424892D3B0013AFAF /* GoShoppingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E121EBC324892D3B0013AFAF /* GoShoppingCell.xib */; };
+		E121EBC7248A5E8E0013AFAF /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E121EBC6248A5E8E0013AFAF /* MealCell.swift */; };
+		E121EBC9248A5E9A0013AFAF /* MealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E121EBC8248A5E9A0013AFAF /* MealCell.xib */; };
+		E121EBCD2493AEFB0013AFAF /* mealsAndItems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E121EBCB2493AEFA0013AFAF /* mealsAndItems.xcdatamodeld */; };
+		E122A2DE23D86D3F00869AC7 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122A2DD23D86D3E00869AC7 /* MealViewController.swift */; };
+		E122A2E023D86FC000869AC7 /* MealItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122A2DF23D86FC000869AC7 /* MealItemViewController.swift */; };
+		E122A2E623D89A2D00869AC7 /* CustomItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E122A2E423D89A2D00869AC7 /* CustomItemCell.xib */; };
+		E122A2E723D89A2D00869AC7 /* CustomItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122A2E523D89A2D00869AC7 /* CustomItemCell.swift */; };
+		E144B186249CC33900140BB5 /* ListBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B185249CC33900140BB5 /* ListBrain.swift */; };
+		E144B1D1249D065B00140BB5 /* Meal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B1CB249D065B00140BB5 /* Meal+CoreDataClass.swift */; };
+		E144B1D2249D065B00140BB5 /* Meal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B1CC249D065B00140BB5 /* Meal+CoreDataProperties.swift */; };
+		E144B1D3249D065B00140BB5 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B1CD249D065B00140BB5 /* Location+CoreDataClass.swift */; };
+		E144B1D4249D065B00140BB5 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B1CE249D065B00140BB5 /* Location+CoreDataProperties.swift */; };
+		E144B1D5249D065B00140BB5 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B1CF249D065B00140BB5 /* Item+CoreDataClass.swift */; };
+		E144B1D6249D065B00140BB5 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144B1D0249D065B00140BB5 /* Item+CoreDataProperties.swift */; };
+		E1608C0D23D722FC00F27582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1608C0C23D722FC00F27582 /* AppDelegate.swift */; };
+		E1608C0F23D722FC00F27582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1608C0E23D722FC00F27582 /* SceneDelegate.swift */; };
+		E1608C1123D722FC00F27582 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1608C1023D722FC00F27582 /* ShoppingListViewController.swift */; };
+		E1608C1423D722FC00F27582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1608C1223D722FC00F27582 /* Main.storyboard */; };
+		E1608C1923D722FE00F27582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1608C1823D722FE00F27582 /* Assets.xcassets */; };
+		E1608C1C23D722FE00F27582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1608C1A23D722FE00F27582 /* LaunchScreen.storyboard */; };
+		E1B3C21A2461E49000F3D2E0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C2192461E49000F3D2E0 /* TabBarController.swift */; };
+		E1B3C21C2461E4E300F3D2E0 /* MyTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C21B2461E4E300F3D2E0 /* MyTabBar.swift */; };
+		E1C8F3CB249550370005EACB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8F3CA249550370005EACB /* SettingsViewController.swift */; };
+		E1C8F3CD249550FE0005EACB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8F3CC249550FE0005EACB /* AboutViewController.swift */; };
+		E1C8F3CF24967BC00005EACB /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8F3CE24967BC00005EACB /* LocationsViewController.swift */; };
+		E1CB9EB52468815000E937FC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB9EB42468815000E937FC /* MasterViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3634489F1F4CE7E76A8F1633 /* Pods-Simple Shopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Shopping.debug.xcconfig"; path = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping.debug.xcconfig"; sourceTree = "<group>"; };
+		97B5290B315D140A15787588 /* Pods_Simple_Shopping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Shopping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E042E34959FC46A5ED6F7D2C /* Pods-Simple Shopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Shopping.release.xcconfig"; path = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping.release.xcconfig"; sourceTree = "<group>"; };
+		E121EBBE2487FB1D0013AFAF /* GoShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingViewController.swift; sourceTree = "<group>"; };
+		E121EBC124892D310013AFAF /* GoShoppingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoShoppingCell.swift; path = "Simple Shopping/Views/Custom Cell/GoShoppingCell.swift"; sourceTree = SOURCE_ROOT; };
+		E121EBC324892D3B0013AFAF /* GoShoppingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoShoppingCell.xib; sourceTree = "<group>"; };
+		E121EBC6248A5E8E0013AFAF /* MealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealCell.swift; path = "Simple Shopping/Views/Custom Cell/MealCell.swift"; sourceTree = SOURCE_ROOT; };
+		E121EBC8248A5E9A0013AFAF /* MealCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MealCell.xib; path = "Simple Shopping/Views/Custom Cell/MealCell.xib"; sourceTree = SOURCE_ROOT; };
+		E121EBCC2493AEFA0013AFAF /* Simple_Shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Simple_Shopping.xcdatamodel; sourceTree = "<group>"; };
+		E122A2DD23D86D3E00869AC7 /* MealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		E122A2DF23D86FC000869AC7 /* MealItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealItemViewController.swift; sourceTree = "<group>"; };
+		E122A2E423D89A2D00869AC7 /* CustomItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomItemCell.xib; sourceTree = "<group>"; };
+		E122A2E523D89A2D00869AC7 /* CustomItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomItemCell.swift; sourceTree = "<group>"; };
+		E144B185249CC33900140BB5 /* ListBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBrain.swift; sourceTree = "<group>"; };
+		E144B1CB249D065B00140BB5 /* Meal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Meal+CoreDataClass.swift"; path = "Simple Shopping/Model/Meal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E144B1CC249D065B00140BB5 /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Meal+CoreDataProperties.swift"; path = "Simple Shopping/Model/Meal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E144B1CD249D065B00140BB5 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "Simple Shopping/Model/Location+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E144B1CE249D065B00140BB5 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "Simple Shopping/Model/Location+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E144B1CF249D065B00140BB5 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "Simple Shopping/Model/Item+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E144B1D0249D065B00140BB5 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "Simple Shopping/Model/Item+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E1608C0923D722FC00F27582 /* Simple Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Shopping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1608C0C23D722FC00F27582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E1608C0E23D722FC00F27582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E1608C1023D722FC00F27582 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		E1608C1323D722FC00F27582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E1608C1823D722FE00F27582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1608C1B23D722FE00F27582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E1608C1D23D722FE00F27582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1B3C2192461E49000F3D2E0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E1B3C21B2461E4E300F3D2E0 /* MyTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBar.swift; sourceTree = "<group>"; };
+		E1C8F3CA249550370005EACB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E1C8F3CC249550FE0005EACB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = "Simple Shopping/Controllers/AboutViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E1C8F3CE24967BC00005EACB /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationsViewController.swift; path = "Simple Shopping/Controllers/LocationsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		E1CB9EB42468815000E937FC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1608C0623D722FC00F27582 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				593FCEBF9FA90AA30AD11D41 /* Pods_Simple_Shopping.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3561F1E09120B9C58E792845 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3634489F1F4CE7E76A8F1633 /* Pods-Simple Shopping.debug.xcconfig */,
+				E042E34959FC46A5ED6F7D2C /* Pods-Simple Shopping.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		57A3A375EAC918E82A74D779 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97B5290B315D140A15787588 /* Pods_Simple_Shopping.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E121EBC024892CFA0013AFAF /* GoShoppingCell */ = {
+			isa = PBXGroup;
+			children = (
+				E121EBC124892D310013AFAF /* GoShoppingCell.swift */,
+				E121EBC324892D3B0013AFAF /* GoShoppingCell.xib */,
+			);
+			path = GoShoppingCell;
+			sourceTree = "<group>";
+		};
+		E121EBC5248A5E7A0013AFAF /* MealCell */ = {
+			isa = PBXGroup;
+			children = (
+				E121EBC8248A5E9A0013AFAF /* MealCell.xib */,
+				E121EBC6248A5E8E0013AFAF /* MealCell.swift */,
+			);
+			path = MealCell;
+			sourceTree = "<group>";
+		};
+		E122A2E123D8706400869AC7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1CB9EB42468815000E937FC /* MasterViewController.swift */,
+				E122A2DD23D86D3E00869AC7 /* MealViewController.swift */,
+				E122A2DF23D86FC000869AC7 /* MealItemViewController.swift */,
+				E1608C1023D722FC00F27582 /* ShoppingListViewController.swift */,
+				E1B3C2192461E49000F3D2E0 /* TabBarController.swift */,
+				E1B3C21B2461E4E300F3D2E0 /* MyTabBar.swift */,
+				E121EBBE2487FB1D0013AFAF /* GoShoppingViewController.swift */,
+				E1C8F3CA249550370005EACB /* SettingsViewController.swift */,
+				E1C8F3CC249550FE0005EACB /* AboutViewController.swift */,
+				E1C8F3CE24967BC00005EACB /* LocationsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E122A2E223D8708900869AC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1608C0C23D722FC00F27582 /* AppDelegate.swift */,
+				E1608C0E23D722FC00F27582 /* SceneDelegate.swift */,
+				E1608C1823D722FE00F27582 /* Assets.xcassets */,
+				E1608C1A23D722FE00F27582 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E122A2E323D89A0E00869AC7 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E122A2E523D89A2D00869AC7 /* CustomItemCell.swift */,
+				E122A2E423D89A2D00869AC7 /* CustomItemCell.xib */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		E1608C0023D722FC00F27582 = {
+			isa = PBXGroup;
+			children = (
+				E1608C0B23D722FC00F27582 /* Simple Shopping */,
+				E1608C0A23D722FC00F27582 /* Products */,
+				3561F1E09120B9C58E792845 /* Pods */,
+				57A3A375EAC918E82A74D779 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E1608C0A23D722FC00F27582 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1608C0923D722FC00F27582 /* Simple Shopping.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1608C0B23D722FC00F27582 /* Simple Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				E1608C2423D7241800F27582 /* Model */,
+				E1608C2323D723DE00F27582 /* Views */,
+				E122A2E123D8706400869AC7 /* Controllers */,
+				E122A2E223D8708900869AC7 /* Supporting Files */,
+				E1608C1D23D722FE00F27582 /* Info.plist */,
+			);
+			path = "Simple Shopping";
+			sourceTree = "<group>";
+		};
+		E1608C2323D723DE00F27582 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E121EBC5248A5E7A0013AFAF /* MealCell */,
+				E121EBC024892CFA0013AFAF /* GoShoppingCell */,
+				E122A2E323D89A0E00869AC7 /* Custom Cell */,
+				E1608C1223D722FC00F27582 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1608C2423D7241800F27582 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E121EBCB2493AEFA0013AFAF /* mealsAndItems.xcdatamodeld */,
+				E144B1CB249D065B00140BB5 /* Meal+CoreDataClass.swift */,
+				E144B1CC249D065B00140BB5 /* Meal+CoreDataProperties.swift */,
+				E144B1CD249D065B00140BB5 /* Location+CoreDataClass.swift */,
+				E144B1CE249D065B00140BB5 /* Location+CoreDataProperties.swift */,
+				E144B1CF249D065B00140BB5 /* Item+CoreDataClass.swift */,
+				E144B1D0249D065B00140BB5 /* Item+CoreDataProperties.swift */,
+				E144B185249CC33900140BB5 /* ListBrain.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1608C0823D722FC00F27582 /* Simple Shopping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1608C2023D722FE00F27582 /* Build configuration list for PBXNativeTarget "Simple Shopping" */;
+			buildPhases = (
+				DF41B93A7549978907B6D84C /* [CP] Check Pods Manifest.lock */,
+				E1608C0523D722FC00F27582 /* Sources */,
+				E1608C0623D722FC00F27582 /* Frameworks */,
+				E1608C0723D722FC00F27582 /* Resources */,
+				A669BB03005AA67B445089DE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simple Shopping";
+			productName = "Simple Shopping";
+			productReference = E1608C0923D722FC00F27582 /* Simple Shopping.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1608C0123D722FC00F27582 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = "Chris Turner";
+				TargetAttributes = {
+					E1608C0823D722FC00F27582 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = E1608C0423D722FC00F27582 /* Build configuration list for PBXProject "Simple Shopping" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1608C0023D722FC00F27582;
+			productRefGroup = E1608C0A23D722FC00F27582 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1608C0823D722FC00F27582 /* Simple Shopping */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1608C0723D722FC00F27582 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E121EBC9248A5E9A0013AFAF /* MealCell.xib in Resources */,
+				E1608C1C23D722FE00F27582 /* LaunchScreen.storyboard in Resources */,
+				E122A2E623D89A2D00869AC7 /* CustomItemCell.xib in Resources */,
+				E1608C1923D722FE00F27582 /* Assets.xcassets in Resources */,
+				E121EBC424892D3B0013AFAF /* GoShoppingCell.xib in Resources */,
+				E1608C1423D722FC00F27582 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A669BB03005AA67B445089DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF41B93A7549978907B6D84C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Simple Shopping-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1608C0523D722FC00F27582 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E144B1D3249D065B00140BB5 /* Location+CoreDataClass.swift in Sources */,
+				E1CB9EB52468815000E937FC /* MasterViewController.swift in Sources */,
+				E144B1D4249D065B00140BB5 /* Location+CoreDataProperties.swift in Sources */,
+				E1608C1123D722FC00F27582 /* ShoppingListViewController.swift in Sources */,
+				E1C8F3CF24967BC00005EACB /* LocationsViewController.swift in Sources */,
+				E121EBC224892D310013AFAF /* GoShoppingCell.swift in Sources */,
+				E121EBBF2487FB1D0013AFAF /* GoShoppingViewController.swift in Sources */,
+				E1B3C21A2461E49000F3D2E0 /* TabBarController.swift in Sources */,
+				E122A2DE23D86D3F00869AC7 /* MealViewController.swift in Sources */,
+				E1608C0D23D722FC00F27582 /* AppDelegate.swift in Sources */,
+				E1B3C21C2461E4E300F3D2E0 /* MyTabBar.swift in Sources */,
+				E144B1D5249D065B00140BB5 /* Item+CoreDataClass.swift in Sources */,
+				E121EBCD2493AEFB0013AFAF /* mealsAndItems.xcdatamodeld in Sources */,
+				E144B1D1249D065B00140BB5 /* Meal+CoreDataClass.swift in Sources */,
+				E121EBC7248A5E8E0013AFAF /* MealCell.swift in Sources */,
+				E144B186249CC33900140BB5 /* ListBrain.swift in Sources */,
+				E122A2E023D86FC000869AC7 /* MealItemViewController.swift in Sources */,
+				E144B1D6249D065B00140BB5 /* Item+CoreDataProperties.swift in Sources */,
+				E122A2E723D89A2D00869AC7 /* CustomItemCell.swift in Sources */,
+				E1C8F3CB249550370005EACB /* SettingsViewController.swift in Sources */,
+				E1C8F3CD249550FE0005EACB /* AboutViewController.swift in Sources */,
+				E144B1D2249D065B00140BB5 /* Meal+CoreDataProperties.swift in Sources */,
+				E1608C0F23D722FC00F27582 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E1608C1223D722FC00F27582 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1608C1323D722FC00F27582 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E1608C1A23D722FE00F27582 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1608C1B23D722FE00F27582 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1608C1E23D722FE00F27582 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1608C1F23D722FE00F27582 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1608C2123D722FE00F27582 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3634489F1F4CE7E76A8F1633 /* Pods-Simple Shopping.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C2MU84W5P;
+				INFOPLIST_FILE = "Simple Shopping/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.codingfromscratch.Simple-Shopping";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E1608C2223D722FE00F27582 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E042E34959FC46A5ED6F7D2C /* Pods-Simple Shopping.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C2MU84W5P;
+				INFOPLIST_FILE = "Simple Shopping/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.codingfromscratch.Simple-Shopping";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1608C0423D722FC00F27582 /* Build configuration list for PBXProject "Simple Shopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1608C1E23D722FE00F27582 /* Debug */,
+				E1608C1F23D722FE00F27582 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1608C2023D722FE00F27582 /* Build configuration list for PBXNativeTarget "Simple Shopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1608C2123D722FE00F27582 /* Debug */,
+				E1608C2223D722FE00F27582 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E121EBCB2493AEFA0013AFAF /* mealsAndItems.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E121EBCC2493AEFA0013AFAF /* Simple_Shopping.xcdatamodel */,
+			);
+			currentVersion = E121EBCC2493AEFA0013AFAF /* Simple_Shopping.xcdatamodel */;
+			path = mealsAndItems.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E1608C0123D722FC00F27582 /* Project object */;
+}

@@ -1,0 +1,983 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1433CCDD081FF0F2EE465B4CA7EB08D2 /* Stateface.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C8D7DDA367721FD93F2B7BD2F5AF21B /* Stateface.ttf */; };
+		1A5C9629937EDAD1C20ED34CADF8CE1C /* FontAwesomeRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 906605664BB901A139AF2C40F7541BC6 /* FontAwesomeRegular.ttf */; };
+		1C59B5BFDDCB7FFCDE4506AF398E5C88 /* FontAwesomeBrands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D46AF8750E033E800B0AE334ADDA25B7 /* FontAwesomeBrands.ttf */; };
+		218D6C69A47F3F45710FBFE2EF4A85AB /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BDBB1A91E83F6D06DD8A7558E9DCD52 /* FontAwesome.ttf */; };
+		26494CA2EEC5C742E92503EEFD0EA8F6 /* Emoji.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D197FE0E60678651CBA2C2D057B3FB83 /* Emoji.ttf */; };
+		285AA9AFC10A14FCB7E69B9F36396022 /* ReorderController+DestinationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C344DE04E4160784A785DB740AA9C5AA /* ReorderController+DestinationRow.swift */; };
+		2AF8597BA1792D983B12E81D422A3EFA /* WeatherIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 063B78CF9E508CAB45FE0591EF6230AC /* WeatherIcons.ttf */; };
+		3DE476EBBA800B4E7F9670477BB9C9CD /* MapIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12BB347B9149925A7C0DBCF34DFFA1D7 /* MapIcons.ttf */; };
+		410D2268AFC42BE50D197C715BBFE86C /* ReorderController+GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF04AEAD7FA96FFB549BB8D593762152 /* ReorderController+GestureRecognizer.swift */; };
+		42F2871C00F801BC7FF7597FE8CE3EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4F995FFC385A30989EFDD5DCE70C5788 /* TypIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59347A329FB495D234B6553456992DFB /* TypIcons.ttf */; };
+		4FEFD89C51D7E4F8C91E10540372D188 /* SwiftIcons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons.bundle */; };
+		52E0606DEC832AFB513D52F534776ED4 /* SwiftIcons-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A321745C551B91FAD25333252E034223 /* SwiftIcons-dummy.m */; };
+		571CFC91E2759F07E5908FE7875AFFAC /* FontAwesomeSolid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 605D7C4D875F9C6FD6D181ABAEA97116 /* FontAwesomeSolid.ttf */; };
+		59767A9D894DC24D9497307408DB5AF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		5C9D4BABA02E8999572AC4A34B9C6367 /* ReorderController+AutoScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933F742AE97417A786CB270899E7893E /* ReorderController+AutoScroll.swift */; };
+		626ED56126AF0124141460A161019BC8 /* Dripicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA39D62F951A907BEF1C065919ED94E2 /* Dripicons.ttf */; };
+		67FB28DC5B895E0F1E60CCC65741A6A6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CB9C79515AC73604E583335BF5ED295 /* Ionicons.ttf */; };
+		73515040155280901EDF9A2444A8FE1B /* ReorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9A983795C879CA971E122ECABA5AEF /* ReorderController.swift */; };
+		75484660B43FF40A37603DC0DE4FE1DC /* SwiftReorder-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC7E84B0539BAD2DDA406B5613711A1 /* SwiftReorder-dummy.m */; };
+		82459517B3421E6F46F0B31E05E78DF0 /* ReorderController+SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D499B2AB03997F35E5EE8AEA4CDD2C /* ReorderController+SnapshotView.swift */; };
+		8E872DC594501B317D499DC3FE860748 /* SwiftIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9BCC78B308F77DF16A5F383248B834 /* SwiftIcons.swift */; };
+		97145B6686DEA103731A8CBC6FBB9A0C /* OpenIconic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE33991BBACBCDCD4C30C2CE346B2D64 /* OpenIconic.ttf */; };
+		9B2EA19D8FC1C55C30D4674ED68FC201 /* SwiftReorder-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D1C634C8B0CF5D18B69AB2FA42380695 /* SwiftReorder-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FA4AB754BD348679C920E6D3E8CDE9F /* UITableView+Reorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE867A33D33337E824722C19F2F810E /* UITableView+Reorder.swift */; };
+		A92908BE27119A32FBE1C2318F6158C8 /* SwiftIcons-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2353ABD988391122E57D1BC3D7555B19 /* SwiftIcons-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC314DA1AD734C2B93FDBA4B9CC48351 /* Pods-Simple Shopping-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E16ADA3C28E6CCB571C26DE4E36A560 /* Pods-Simple Shopping-dummy.m */; };
+		B0F7C7F4C0F31A4A084109364CB8400E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32A430428B2481C01A26C6C754E69143 /* MaterialIcons.ttf */; };
+		B507EC518E63B76ADE647470E12D9D8B /* Linearicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8597E766C7F9BAE88C48B156154FCBA0 /* Linearicons.ttf */; };
+		CA7EDFCDA51DE71663136296877C6472 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E50209CCE506171E4DA6426018BC97C1 /* Pods-Simple Shopping-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 062F60E3BED71213ECB9B2A423F834D2 /* Pods-Simple Shopping-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EEBFDDC9A3D9FEAA198CAEF136942262 /* Icofont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F66644302F2FCC4212BF4163607569DA /* Icofont.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65DD17611FF3A890D105411247A55D4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FFA1A15AFDB5DA9D9A98596F92997762;
+			remoteInfo = "SwiftIcons-SwiftIcons";
+		};
+		C2B3AA2AA070BD1072A7654BD01AFCD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFF525D65A0B4D154F5421D1024BF72F;
+			remoteInfo = SwiftReorder;
+		};
+		DE247F27933ED68B09F6C9198F12F7A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 831DE2A2E1C749797E9D44BE273531D7;
+			remoteInfo = SwiftIcons;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05CB2A8E4719F989AA4189256DFED7D4 /* Pods-Simple Shopping-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Simple Shopping-acknowledgements.markdown"; sourceTree = "<group>"; };
+		062F60E3BED71213ECB9B2A423F834D2 /* Pods-Simple Shopping-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Simple Shopping-umbrella.h"; sourceTree = "<group>"; };
+		063B78CF9E508CAB45FE0591EF6230AC /* WeatherIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = WeatherIcons.ttf; path = Source/Fonts/WeatherIcons.ttf; sourceTree = "<group>"; };
+		0F399F2956A75C6B1ED6F808F1692739 /* Pods_Simple_Shopping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Shopping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12BB347B9149925A7C0DBCF34DFFA1D7 /* MapIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = MapIcons.ttf; path = Source/Fonts/MapIcons.ttf; sourceTree = "<group>"; };
+		154055C4295E2B3A7B37E3F620B0678C /* SwiftIcons.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftIcons.modulemap; sourceTree = "<group>"; };
+		1A9A983795C879CA971E122ECABA5AEF /* ReorderController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReorderController.swift; path = Source/ReorderController.swift; sourceTree = "<group>"; };
+		1ED920D9EBE4B4EAE9C52916A393E3B8 /* SwiftIcons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftIcons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2353ABD988391122E57D1BC3D7555B19 /* SwiftIcons-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIcons-umbrella.h"; sourceTree = "<group>"; };
+		2B9544B6CE682F113D76008F3CE62544 /* SwiftReorder.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftReorder.modulemap; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		32A430428B2481C01A26C6C754E69143 /* MaterialIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = MaterialIcons.ttf; path = Source/Fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		32ECFCA8FF793C1F9054EB0A4F2519E6 /* Pods-Simple Shopping-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Simple Shopping-acknowledgements.plist"; sourceTree = "<group>"; };
+		39D261C3D8BBCA2222DBF668FB70D7ED /* ResourceBundle-SwiftIcons-SwiftIcons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SwiftIcons-SwiftIcons-Info.plist"; sourceTree = "<group>"; };
+		3B5A47268AA93A72500C28E0A09608FB /* SwiftReorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftReorder.release.xcconfig; sourceTree = "<group>"; };
+		3C9BCC78B308F77DF16A5F383248B834 /* SwiftIcons.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftIcons.swift; path = Source/SwiftIcons.swift; sourceTree = "<group>"; };
+		44041E4825CE35593B715BEADFCBE7C6 /* SwiftIcons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftIcons.release.xcconfig; sourceTree = "<group>"; };
+		4C8D7DDA367721FD93F2B7BD2F5AF21B /* Stateface.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Stateface.ttf; path = Source/Fonts/Stateface.ttf; sourceTree = "<group>"; };
+		4CB9C79515AC73604E583335BF5ED295 /* Ionicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Ionicons.ttf; path = Source/Fonts/Ionicons.ttf; sourceTree = "<group>"; };
+		4CE867A33D33337E824722C19F2F810E /* UITableView+Reorder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableView+Reorder.swift"; path = "Source/UITableView+Reorder.swift"; sourceTree = "<group>"; };
+		53CD5838AD660ADE5340A86578ECC197 /* SwiftReorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftReorder.debug.xcconfig; sourceTree = "<group>"; };
+		59347A329FB495D234B6553456992DFB /* TypIcons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = TypIcons.ttf; path = Source/Fonts/TypIcons.ttf; sourceTree = "<group>"; };
+		5FD41959257BE35D574C0344E7D1154F /* Pods-Simple Shopping.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Simple Shopping.modulemap"; sourceTree = "<group>"; };
+		605D7C4D875F9C6FD6D181ABAEA97116 /* FontAwesomeSolid.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesomeSolid.ttf; path = Source/Fonts/FontAwesomeSolid.ttf; sourceTree = "<group>"; };
+		6BDBB1A91E83F6D06DD8A7558E9DCD52 /* FontAwesome.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.ttf; path = Source/Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		6EF24021C5EDCB77C73EFD884DFC8F15 /* Pods-Simple Shopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Simple Shopping.release.xcconfig"; sourceTree = "<group>"; };
+		775F2DC00AA92E1025AE95955448CF13 /* SwiftIcons-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftIcons-prefix.pch"; sourceTree = "<group>"; };
+		7B950FFE21CBBAB5B2469C5E276F5364 /* SwiftReorder-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftReorder-Info.plist"; sourceTree = "<group>"; };
+		7D3A9ECCE713EDC5E62C436B40FC389C /* Pods-Simple Shopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Simple Shopping.debug.xcconfig"; sourceTree = "<group>"; };
+		8597E766C7F9BAE88C48B156154FCBA0 /* Linearicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Linearicons.ttf; path = Source/Fonts/Linearicons.ttf; sourceTree = "<group>"; };
+		8A91BC9B1E40CE490EFFD4E1D271A08B /* Pods-Simple Shopping-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Simple Shopping-Info.plist"; sourceTree = "<group>"; };
+		906605664BB901A139AF2C40F7541BC6 /* FontAwesomeRegular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesomeRegular.ttf; path = Source/Fonts/FontAwesomeRegular.ttf; sourceTree = "<group>"; };
+		933F742AE97417A786CB270899E7893E /* ReorderController+AutoScroll.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ReorderController+AutoScroll.swift"; path = "Source/ReorderController+AutoScroll.swift"; sourceTree = "<group>"; };
+		98CFCFF7B9C1FB30F4C185117951B4F5 /* Pods-Simple Shopping-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Simple Shopping-frameworks.sh"; sourceTree = "<group>"; };
+		9AC7E84B0539BAD2DDA406B5613711A1 /* SwiftReorder-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftReorder-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E16ADA3C28E6CCB571C26DE4E36A560 /* Pods-Simple Shopping-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Simple Shopping-dummy.m"; sourceTree = "<group>"; };
+		A2D499B2AB03997F35E5EE8AEA4CDD2C /* ReorderController+SnapshotView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ReorderController+SnapshotView.swift"; path = "Source/ReorderController+SnapshotView.swift"; sourceTree = "<group>"; };
+		A321745C551B91FAD25333252E034223 /* SwiftIcons-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftIcons-dummy.m"; sourceTree = "<group>"; };
+		A5FF9A500106E8345CE818290F542BE8 /* SwiftReorder-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftReorder-prefix.pch"; sourceTree = "<group>"; };
+		AF04AEAD7FA96FFB549BB8D593762152 /* ReorderController+GestureRecognizer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ReorderController+GestureRecognizer.swift"; path = "Source/ReorderController+GestureRecognizer.swift"; sourceTree = "<group>"; };
+		C344DE04E4160784A785DB740AA9C5AA /* ReorderController+DestinationRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ReorderController+DestinationRow.swift"; path = "Source/ReorderController+DestinationRow.swift"; sourceTree = "<group>"; };
+		CE33991BBACBCDCD4C30C2CE346B2D64 /* OpenIconic.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = OpenIconic.ttf; path = Source/Fonts/OpenIconic.ttf; sourceTree = "<group>"; };
+		D197FE0E60678651CBA2C2D057B3FB83 /* Emoji.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Emoji.ttf; path = Source/Fonts/Emoji.ttf; sourceTree = "<group>"; };
+		D1C634C8B0CF5D18B69AB2FA42380695 /* SwiftReorder-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftReorder-umbrella.h"; sourceTree = "<group>"; };
+		D46AF8750E033E800B0AE334ADDA25B7 /* FontAwesomeBrands.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesomeBrands.ttf; path = Source/Fonts/FontAwesomeBrands.ttf; sourceTree = "<group>"; };
+		D805E9899C87CF986CF48A3E619E748E /* SwiftIcons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftIcons.debug.xcconfig; sourceTree = "<group>"; };
+		E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftIcons.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66644302F2FCC4212BF4163607569DA /* Icofont.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Icofont.ttf; path = Source/Fonts/Icofont.ttf; sourceTree = "<group>"; };
+		FA39D62F951A907BEF1C065919ED94E2 /* Dripicons.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = Dripicons.ttf; path = Source/Fonts/Dripicons.ttf; sourceTree = "<group>"; };
+		FD0258A70296AEFEBE4C07571CD1577D /* SwiftReorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftReorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDC84EF2CBC395934465C9D7CD5A3626 /* SwiftIcons-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftIcons-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05D62A25CD2CE72FE36C2C6EC4792CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F2871C00F801BC7FF7597FE8CE3EF7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A7EE73BDA825646D426E67D28683A84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7EDFCDA51DE71663136296877C6472 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9607EB895803B6A247B27A5AF3564CCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59767A9D894DC24D9497307408DB5AF5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5DCB63A7C6B61A2FE210CCAC7C5841B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040E2EB849D0044565273471961FDF45 /* SwiftReorder */ = {
+			isa = PBXGroup;
+			children = (
+				1A9A983795C879CA971E122ECABA5AEF /* ReorderController.swift */,
+				933F742AE97417A786CB270899E7893E /* ReorderController+AutoScroll.swift */,
+				C344DE04E4160784A785DB740AA9C5AA /* ReorderController+DestinationRow.swift */,
+				AF04AEAD7FA96FFB549BB8D593762152 /* ReorderController+GestureRecognizer.swift */,
+				A2D499B2AB03997F35E5EE8AEA4CDD2C /* ReorderController+SnapshotView.swift */,
+				4CE867A33D33337E824722C19F2F810E /* UITableView+Reorder.swift */,
+				3608E30179B8A9355A8923CBA141E2BA /* Support Files */,
+			);
+			path = SwiftReorder;
+			sourceTree = "<group>";
+		};
+		0F5817EF60EC92FE2153C2F53A671DD1 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D53508B630581095FDEC3E59447B994 /* Pods-Simple Shopping */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3608E30179B8A9355A8923CBA141E2BA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B9544B6CE682F113D76008F3CE62544 /* SwiftReorder.modulemap */,
+				9AC7E84B0539BAD2DDA406B5613711A1 /* SwiftReorder-dummy.m */,
+				7B950FFE21CBBAB5B2469C5E276F5364 /* SwiftReorder-Info.plist */,
+				A5FF9A500106E8345CE818290F542BE8 /* SwiftReorder-prefix.pch */,
+				D1C634C8B0CF5D18B69AB2FA42380695 /* SwiftReorder-umbrella.h */,
+				53CD5838AD660ADE5340A86578ECC197 /* SwiftReorder.debug.xcconfig */,
+				3B5A47268AA93A72500C28E0A09608FB /* SwiftReorder.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftReorder";
+			sourceTree = "<group>";
+		};
+		36E0F5E988A655BFB9E9642A4F5FBE8F /* SwiftIcons */ = {
+			isa = PBXGroup;
+			children = (
+				3C9BCC78B308F77DF16A5F383248B834 /* SwiftIcons.swift */,
+				B3281DB3E7E69444A987F52D91CC0522 /* Resources */,
+				D44498B9C9F8343CFDD8B5917E0B10C2 /* Support Files */,
+			);
+			path = SwiftIcons;
+			sourceTree = "<group>";
+		};
+		39B6906E8E5FB55639804F5DB5B18FE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36E0F5E988A655BFB9E9642A4F5FBE8F /* SwiftIcons */,
+				040E2EB849D0044565273471961FDF45 /* SwiftReorder */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		742B31E4E5E925E808F4DC5D6A752125 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F399F2956A75C6B1ED6F808F1692739 /* Pods_Simple_Shopping.framework */,
+				E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons.bundle */,
+				1ED920D9EBE4B4EAE9C52916A393E3B8 /* SwiftIcons.framework */,
+				FD0258A70296AEFEBE4C07571CD1577D /* SwiftReorder.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D53508B630581095FDEC3E59447B994 /* Pods-Simple Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				5FD41959257BE35D574C0344E7D1154F /* Pods-Simple Shopping.modulemap */,
+				05CB2A8E4719F989AA4189256DFED7D4 /* Pods-Simple Shopping-acknowledgements.markdown */,
+				32ECFCA8FF793C1F9054EB0A4F2519E6 /* Pods-Simple Shopping-acknowledgements.plist */,
+				9E16ADA3C28E6CCB571C26DE4E36A560 /* Pods-Simple Shopping-dummy.m */,
+				98CFCFF7B9C1FB30F4C185117951B4F5 /* Pods-Simple Shopping-frameworks.sh */,
+				8A91BC9B1E40CE490EFFD4E1D271A08B /* Pods-Simple Shopping-Info.plist */,
+				062F60E3BED71213ECB9B2A423F834D2 /* Pods-Simple Shopping-umbrella.h */,
+				7D3A9ECCE713EDC5E62C436B40FC389C /* Pods-Simple Shopping.debug.xcconfig */,
+				6EF24021C5EDCB77C73EFD884DFC8F15 /* Pods-Simple Shopping.release.xcconfig */,
+			);
+			name = "Pods-Simple Shopping";
+			path = "Target Support Files/Pods-Simple Shopping";
+			sourceTree = "<group>";
+		};
+		B3281DB3E7E69444A987F52D91CC0522 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA39D62F951A907BEF1C065919ED94E2 /* Dripicons.ttf */,
+				D197FE0E60678651CBA2C2D057B3FB83 /* Emoji.ttf */,
+				6BDBB1A91E83F6D06DD8A7558E9DCD52 /* FontAwesome.ttf */,
+				D46AF8750E033E800B0AE334ADDA25B7 /* FontAwesomeBrands.ttf */,
+				906605664BB901A139AF2C40F7541BC6 /* FontAwesomeRegular.ttf */,
+				605D7C4D875F9C6FD6D181ABAEA97116 /* FontAwesomeSolid.ttf */,
+				F66644302F2FCC4212BF4163607569DA /* Icofont.ttf */,
+				4CB9C79515AC73604E583335BF5ED295 /* Ionicons.ttf */,
+				8597E766C7F9BAE88C48B156154FCBA0 /* Linearicons.ttf */,
+				12BB347B9149925A7C0DBCF34DFFA1D7 /* MapIcons.ttf */,
+				32A430428B2481C01A26C6C754E69143 /* MaterialIcons.ttf */,
+				CE33991BBACBCDCD4C30C2CE346B2D64 /* OpenIconic.ttf */,
+				4C8D7DDA367721FD93F2B7BD2F5AF21B /* Stateface.ttf */,
+				59347A329FB495D234B6553456992DFB /* TypIcons.ttf */,
+				063B78CF9E508CAB45FE0591EF6230AC /* WeatherIcons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				39B6906E8E5FB55639804F5DB5B18FE2 /* Pods */,
+				742B31E4E5E925E808F4DC5D6A752125 /* Products */,
+				0F5817EF60EC92FE2153C2F53A671DD1 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D44498B9C9F8343CFDD8B5917E0B10C2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				39D261C3D8BBCA2222DBF668FB70D7ED /* ResourceBundle-SwiftIcons-SwiftIcons-Info.plist */,
+				154055C4295E2B3A7B37E3F620B0678C /* SwiftIcons.modulemap */,
+				A321745C551B91FAD25333252E034223 /* SwiftIcons-dummy.m */,
+				FDC84EF2CBC395934465C9D7CD5A3626 /* SwiftIcons-Info.plist */,
+				775F2DC00AA92E1025AE95955448CF13 /* SwiftIcons-prefix.pch */,
+				2353ABD988391122E57D1BC3D7555B19 /* SwiftIcons-umbrella.h */,
+				D805E9899C87CF986CF48A3E619E748E /* SwiftIcons.debug.xcconfig */,
+				44041E4825CE35593B715BEADFCBE7C6 /* SwiftIcons.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftIcons";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		04A063ECF4D2146D4E835442D4D5CAAF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A92908BE27119A32FBE1C2318F6158C8 /* SwiftIcons-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		288C971CEB58FE7862FBB9F9C958B246 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E50209CCE506171E4DA6426018BC97C1 /* Pods-Simple Shopping-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C612698556EE179039ECB0CC32AC1B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B2EA19D8FC1C55C30D4674ED68FC201 /* SwiftReorder-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		831DE2A2E1C749797E9D44BE273531D7 /* SwiftIcons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 311B4D8A50D4E97AFDB66BAFD285BCE8 /* Build configuration list for PBXNativeTarget "SwiftIcons" */;
+			buildPhases = (
+				04A063ECF4D2146D4E835442D4D5CAAF /* Headers */,
+				34B8A13B6DF3CCE537B5D1FE59AB622F /* Sources */,
+				05D62A25CD2CE72FE36C2C6EC4792CC7 /* Frameworks */,
+				6F7E0EB5F296DADF8EEE3AFC3AA45CA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3BB13C3DFCCF9734058BA0E3DFC115A /* PBXTargetDependency */,
+			);
+			name = SwiftIcons;
+			productName = SwiftIcons;
+			productReference = 1ED920D9EBE4B4EAE9C52916A393E3B8 /* SwiftIcons.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CBA3577AE325C65D15B7B1C043F06594 /* Pods-Simple Shopping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BD5BE36557B8CBE14BA3AB8E4992AF1 /* Build configuration list for PBXNativeTarget "Pods-Simple Shopping" */;
+			buildPhases = (
+				288C971CEB58FE7862FBB9F9C958B246 /* Headers */,
+				2EF432CFE3579B9ADB92EFE129B2224B /* Sources */,
+				8A7EE73BDA825646D426E67D28683A84 /* Frameworks */,
+				197F45C6B9E1E9472DB0864E177DC6E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				721F949D684A43349C68358706B6168E /* PBXTargetDependency */,
+				D674658D4C22E9500067C45DFE31D47F /* PBXTargetDependency */,
+			);
+			name = "Pods-Simple Shopping";
+			productName = "Pods-Simple Shopping";
+			productReference = 0F399F2956A75C6B1ED6F808F1692739 /* Pods_Simple_Shopping.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DFF525D65A0B4D154F5421D1024BF72F /* SwiftReorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15D3E7149CDBF7615E230DBC30224B1B /* Build configuration list for PBXNativeTarget "SwiftReorder" */;
+			buildPhases = (
+				C3C612698556EE179039ECB0CC32AC1B /* Headers */,
+				0B154861651CC931C72891A5E24C92AC /* Sources */,
+				9607EB895803B6A247B27A5AF3564CCF /* Frameworks */,
+				62F45FF49C95174900614511A98546CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftReorder;
+			productName = SwiftReorder;
+			productReference = FD0258A70296AEFEBE4C07571CD1577D /* SwiftReorder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FFA1A15AFDB5DA9D9A98596F92997762 /* SwiftIcons-SwiftIcons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D00A005615B9269C626EFDE17E2AB55 /* Build configuration list for PBXNativeTarget "SwiftIcons-SwiftIcons" */;
+			buildPhases = (
+				9EFECA1F0DF3CBA4E1B3E5BC11B458F1 /* Sources */,
+				B5DCB63A7C6B61A2FE210CCAC7C5841B /* Frameworks */,
+				F872205769385FB7B2696024EAF28E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftIcons-SwiftIcons";
+			productName = "SwiftIcons-SwiftIcons";
+			productReference = E138077ACCD4D7F5A61DAC1D99E93392 /* SwiftIcons.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1200;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 742B31E4E5E925E808F4DC5D6A752125 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBA3577AE325C65D15B7B1C043F06594 /* Pods-Simple Shopping */,
+				831DE2A2E1C749797E9D44BE273531D7 /* SwiftIcons */,
+				FFA1A15AFDB5DA9D9A98596F92997762 /* SwiftIcons-SwiftIcons */,
+				DFF525D65A0B4D154F5421D1024BF72F /* SwiftReorder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		197F45C6B9E1E9472DB0864E177DC6E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62F45FF49C95174900614511A98546CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F7E0EB5F296DADF8EEE3AFC3AA45CA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FEFD89C51D7E4F8C91E10540372D188 /* SwiftIcons.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F872205769385FB7B2696024EAF28E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				626ED56126AF0124141460A161019BC8 /* Dripicons.ttf in Resources */,
+				26494CA2EEC5C742E92503EEFD0EA8F6 /* Emoji.ttf in Resources */,
+				218D6C69A47F3F45710FBFE2EF4A85AB /* FontAwesome.ttf in Resources */,
+				1C59B5BFDDCB7FFCDE4506AF398E5C88 /* FontAwesomeBrands.ttf in Resources */,
+				1A5C9629937EDAD1C20ED34CADF8CE1C /* FontAwesomeRegular.ttf in Resources */,
+				571CFC91E2759F07E5908FE7875AFFAC /* FontAwesomeSolid.ttf in Resources */,
+				EEBFDDC9A3D9FEAA198CAEF136942262 /* Icofont.ttf in Resources */,
+				67FB28DC5B895E0F1E60CCC65741A6A6 /* Ionicons.ttf in Resources */,
+				B507EC518E63B76ADE647470E12D9D8B /* Linearicons.ttf in Resources */,
+				3DE476EBBA800B4E7F9670477BB9C9CD /* MapIcons.ttf in Resources */,
+				B0F7C7F4C0F31A4A084109364CB8400E /* MaterialIcons.ttf in Resources */,
+				97145B6686DEA103731A8CBC6FBB9A0C /* OpenIconic.ttf in Resources */,
+				1433CCDD081FF0F2EE465B4CA7EB08D2 /* Stateface.ttf in Resources */,
+				4F995FFC385A30989EFDD5DCE70C5788 /* TypIcons.ttf in Resources */,
+				2AF8597BA1792D983B12E81D422A3EFA /* WeatherIcons.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B154861651CC931C72891A5E24C92AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9D4BABA02E8999572AC4A34B9C6367 /* ReorderController+AutoScroll.swift in Sources */,
+				285AA9AFC10A14FCB7E69B9F36396022 /* ReorderController+DestinationRow.swift in Sources */,
+				410D2268AFC42BE50D197C715BBFE86C /* ReorderController+GestureRecognizer.swift in Sources */,
+				82459517B3421E6F46F0B31E05E78DF0 /* ReorderController+SnapshotView.swift in Sources */,
+				73515040155280901EDF9A2444A8FE1B /* ReorderController.swift in Sources */,
+				75484660B43FF40A37603DC0DE4FE1DC /* SwiftReorder-dummy.m in Sources */,
+				9FA4AB754BD348679C920E6D3E8CDE9F /* UITableView+Reorder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EF432CFE3579B9ADB92EFE129B2224B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC314DA1AD734C2B93FDBA4B9CC48351 /* Pods-Simple Shopping-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34B8A13B6DF3CCE537B5D1FE59AB622F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52E0606DEC832AFB513D52F534776ED4 /* SwiftIcons-dummy.m in Sources */,
+				8E872DC594501B317D499DC3FE860748 /* SwiftIcons.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EFECA1F0DF3CBA4E1B3E5BC11B458F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		721F949D684A43349C68358706B6168E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftIcons;
+			target = 831DE2A2E1C749797E9D44BE273531D7 /* SwiftIcons */;
+			targetProxy = DE247F27933ED68B09F6C9198F12F7A9 /* PBXContainerItemProxy */;
+		};
+		D674658D4C22E9500067C45DFE31D47F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftReorder;
+			target = DFF525D65A0B4D154F5421D1024BF72F /* SwiftReorder */;
+			targetProxy = C2B3AA2AA070BD1072A7654BD01AFCD5 /* PBXContainerItemProxy */;
+		};
+		E3BB13C3DFCCF9734058BA0E3DFC115A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftIcons-SwiftIcons";
+			target = FFA1A15AFDB5DA9D9A98596F92997762 /* SwiftIcons-SwiftIcons */;
+			targetProxy = 65DD17611FF3A890D105411247A55D4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01B8A28434EFCCC43B87907214E6CAFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B5A47268AA93A72500C28E0A09608FB /* SwiftReorder.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftReorder/SwiftReorder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftReorder/SwiftReorder-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftReorder/SwiftReorder.modulemap";
+				PRODUCT_MODULE_NAME = SwiftReorder;
+				PRODUCT_NAME = SwiftReorder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		13A49429349891C388511B1654E7D82C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44041E4825CE35593B715BEADFCBE7C6 /* SwiftIcons.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftIcons";
+				IBSC_MODULE = SwiftIcons;
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/ResourceBundle-SwiftIcons-SwiftIcons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		4899C9971652681B82A05972B03CC8E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53CD5838AD660ADE5340A86578ECC197 /* SwiftReorder.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftReorder/SwiftReorder-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftReorder/SwiftReorder-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftReorder/SwiftReorder.modulemap";
+				PRODUCT_MODULE_NAME = SwiftReorder;
+				PRODUCT_NAME = SwiftReorder;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		500A12DEC644BCCDF29AC3482B7BF701 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D3A9ECCE713EDC5E62C436B40FC389C /* Pods-Simple Shopping.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		80480E27D8248EA95FE8E156CE00D51C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D805E9899C87CF986CF48A3E619E748E /* SwiftIcons.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftIcons";
+				IBSC_MODULE = SwiftIcons;
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/ResourceBundle-SwiftIcons-SwiftIcons-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CB8E31FC3EFD797C548E9FF3FA57C42B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44041E4825CE35593B715BEADFCBE7C6 /* SwiftIcons.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftIcons/SwiftIcons-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/SwiftIcons-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftIcons/SwiftIcons.modulemap";
+				PRODUCT_MODULE_NAME = SwiftIcons;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E468EDEE64C2655F5692B4ED89C82B0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EF24021C5EDCB77C73EFD884DFC8F15 /* Pods-Simple Shopping.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E7A695143AA046781DAF78EA72D0D9C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D805E9899C87CF986CF48A3E619E748E /* SwiftIcons.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftIcons/SwiftIcons-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftIcons/SwiftIcons-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftIcons/SwiftIcons.modulemap";
+				PRODUCT_MODULE_NAME = SwiftIcons;
+				PRODUCT_NAME = SwiftIcons;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECB437504DF805BD96CAABF97400B526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15D3E7149CDBF7615E230DBC30224B1B /* Build configuration list for PBXNativeTarget "SwiftReorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4899C9971652681B82A05972B03CC8E9 /* Debug */,
+				01B8A28434EFCCC43B87907214E6CAFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D00A005615B9269C626EFDE17E2AB55 /* Build configuration list for PBXNativeTarget "SwiftIcons-SwiftIcons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80480E27D8248EA95FE8E156CE00D51C /* Debug */,
+				13A49429349891C388511B1654E7D82C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		311B4D8A50D4E97AFDB66BAFD285BCE8 /* Build configuration list for PBXNativeTarget "SwiftIcons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7A695143AA046781DAF78EA72D0D9C6 /* Debug */,
+				CB8E31FC3EFD797C548E9FF3FA57C42B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
+				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BD5BE36557B8CBE14BA3AB8E4992AF1 /* Build configuration list for PBXNativeTarget "Pods-Simple Shopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				500A12DEC644BCCDF29AC3482B7BF701 /* Debug */,
+				E468EDEE64C2655F5692B4ED89C82B0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

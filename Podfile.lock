@@ -1,0 +1,20 @@
+PODS:
+  - SwiftIcons (3.0)
+  - SwiftReorder (7.2.0)
+
+DEPENDENCIES:
+  - SwiftIcons (~> 3.0)
+  - SwiftReorder (~> 7.2)
+
+SPEC REPOS:
+  trunk:
+    - SwiftIcons
+    - SwiftReorder
+
+SPEC CHECKSUMS:
+  SwiftIcons: 3b748e57d9eee0c7c8d3bdbf2d742c0b1b4c6172
+  SwiftReorder: d687883abf5f2327268e006b038025a6fc515e34
+
+PODFILE CHECKSUM: f4f8331992664659d6454a16b28cb161ef2fe143
+
+COCOAPODS: 1.9.1

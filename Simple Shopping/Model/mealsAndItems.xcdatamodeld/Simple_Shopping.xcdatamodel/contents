@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17162" systemVersion="20A4299v" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName=".Item" syncable="YES">
+        <attribute name="categoryOfItem" attributeType="String" defaultValueString="New"/>
+        <attribute name="itemName" attributeType="String" defaultValueString=""/>
+        <attribute name="neededThatWeek" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="orderOfPurchase" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="purchasedThatWeek" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="quantity" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="selectedThatWeek" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="itemLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="itemsAtLocation" inverseEntity="Location"/>
+        <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="mealItems" inverseEntity="Meal"/>
+        <fetchIndex name="byOrderOfPurchase">
+            <fetchIndexElement property="orderOfPurchase" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="locationName" optional="YES" attributeType="String"/>
+        <relationship name="itemsAtLocation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="itemLocation" inverseEntity="Item"/>
+        <fetchIndex name="byLocationNameIndex">
+            <fetchIndexElement property="locationName" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="Meal" representedClassName=".Meal" syncable="YES">
+        <attribute name="mealName" attributeType="String" defaultValueString=""/>
+        <attribute name="selectedMeal" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="mealItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="parentCategory" inverseEntity="Item"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="19.078125" positionY="83.8203125" width="128" height="164"/>
+        <element name="Location" positionX="-99" positionY="126" width="128" height="73"/>
+        <element name="Meal" positionX="-230.12890625" positionY="8.2109375" width="128" height="88"/>
+    </elements>
+</model>
