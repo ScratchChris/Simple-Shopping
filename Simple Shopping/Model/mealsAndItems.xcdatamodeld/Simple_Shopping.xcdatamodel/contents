@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17162" systemVersion="20A4299v" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName=".Item" syncable="YES">
-        <attribute name="categoryOfItem" attributeType="String" defaultValueString="New"/>
         <attribute name="itemName" attributeType="String" defaultValueString=""/>
-        <attribute name="neededThatWeek" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="newOrStaple" optional="YES" attributeType="String"/>
+        <attribute name="onShoppingList" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="orderOfPurchase" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="purchasedThatWeek" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="purchased" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="quantity" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
-        <attribute name="selectedThatWeek" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="tickedOnList" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="visible" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="inMeal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" inverseName="mealItems" inverseEntity="Meal"/>
         <relationship name="itemLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="itemsAtLocation" inverseEntity="Location"/>
-        <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="mealItems" inverseEntity="Meal"/>
+        <relationship name="shoppingTripPurchased" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShoppingTrip" inverseName="itemsPurchased" inverseEntity="ShoppingTrip"/>
         <fetchIndex name="byOrderOfPurchase">
             <fetchIndexElement property="orderOfPurchase" type="Binary" order="ascending"/>
         </fetchIndex>
     </entity>
-    <entity name="Location" representedClassName="Location" syncable="YES">
+    <entity name="Location" representedClassName=".Location" syncable="YES">
         <attribute name="locationName" optional="YES" attributeType="String"/>
         <relationship name="itemsAtLocation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="itemLocation" inverseEntity="Item"/>
         <fetchIndex name="byLocationNameIndex">
@@ -24,11 +26,18 @@
     <entity name="Meal" representedClassName=".Meal" syncable="YES">
         <attribute name="mealName" attributeType="String" defaultValueString=""/>
         <attribute name="selectedMeal" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <relationship name="mealItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="parentCategory" inverseEntity="Item"/>
+        <relationship name="mealItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="inMeal" inverseEntity="Item"/>
+        <relationship name="shoppingTripPurchased" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingTrip" inverseName="mealsPurchased" inverseEntity="ShoppingTrip"/>
+    </entity>
+    <entity name="ShoppingTrip" representedClassName=".ShoppingTrip" syncable="YES">
+        <attribute name="dateOfShop" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="itemsPurchased" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="shoppingTripPurchased" inverseEntity="Item"/>
+        <relationship name="mealsPurchased" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Meal" inverseName="shoppingTripPurchased" inverseEntity="Meal"/>
     </entity>
     <elements>
-        <element name="Item" positionX="19.078125" positionY="83.8203125" width="128" height="164"/>
-        <element name="Location" positionX="-99" positionY="126" width="128" height="73"/>
-        <element name="Meal" positionX="-230.12890625" positionY="8.2109375" width="128" height="88"/>
+        <element name="Item" positionX="19.078125" positionY="83.8203125" width="128" height="194"/>
+        <element name="Location" positionX="173.572509765625" positionY="123.2354583740234" width="128" height="73"/>
+        <element name="Meal" positionX="-230.12890625" positionY="8.2109375" width="128" height="89"/>
+        <element name="ShoppingTrip" positionX="-438.6057739257812" positionY="184.5467529296875" width="128" height="14"/>
     </elements>
 </model>

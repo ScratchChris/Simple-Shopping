@@ -2,7 +2,7 @@
 //  Meal+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 19/06/2020.
+//  Created by Chris Turner on 06/07/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -17,9 +17,10 @@ extension Meal {
         return NSFetchRequest<Meal>(entityName: "Meal")
     }
 
-    @NSManaged public var mealName: String
+    @NSManaged public var mealName: String?
     @NSManaged public var selectedMeal: Bool
-    @NSManaged public var mealItems: NSSet
+    @NSManaged public var mealItems: NSSet?
+    @NSManaged public var shoppingTripPurchased: ShoppingTrip?
 
 }
 

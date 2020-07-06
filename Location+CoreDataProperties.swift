@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 19/06/2020.
+//  Created by Chris Turner on 06/07/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -17,8 +17,8 @@ extension Location {
         return NSFetchRequest<Location>(entityName: "Location")
     }
 
-    @NSManaged public var locationName: String
-    @NSManaged public var itemsAtLocation: NSSet
+    @NSManaged public var locationName: String?
+    @NSManaged public var itemsAtLocation: NSSet?
 
 }
 

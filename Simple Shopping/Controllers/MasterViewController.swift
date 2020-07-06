@@ -27,7 +27,6 @@ class MasterViewController: UITableViewController {
         tableView.register(UINib(nibName: "CustomItemCell", bundle: nil), forCellReuseIdentifier: "customItemCell")
         tableView.register(UINib(nibName: "GoShoppingCell", bundle: nil), forCellReuseIdentifier: "goShoppingCell")
         tableView.register(UINib(nibName: "MealCell", bundle: nil), forCellReuseIdentifier: "mealCell")
-        
     }
     
     // MARK: - Notification Handling

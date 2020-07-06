@@ -39,21 +39,21 @@ class GoShoppingViewController : MasterViewController {
         let item = listBrain.shoppingListArray[indexPath.row]
 
         cell.itemName.text = item.itemName
-        cell.itemType.text = item.categoryOfItem
+        cell.itemType.text = item.newOrStaple
         cell.quantity.text = String(item.quantity)
         
         
-        if item.categoryOfItem == "New" {
+        if item.newOrStaple == "New" {
             cell.itemType.backgroundColor = UIColor(named: "Green")
-        } else if item.categoryOfItem == "Staple" {
+        } else if item.newOrStaple == "Staple" {
             cell.itemType.backgroundColor = UIColor(named: "Yellow")
-        } else if item.categoryOfItem == "Meal" {
+        } else if item.newOrStaple == "Meal" {
             cell.itemType.backgroundColor = UIColor(named: "Blue")
         }
         
-        cell.accessoryType = item.purchasedThatWeek ? .checkmark : .none
+        cell.accessoryType = item.purchased ? .checkmark : .none
 
-        if item.purchasedThatWeek == true {
+        if item.purchased == true {
             cell.backgroundColor = UIColor.gray
         } else {
             cell.backgroundColor = UIColor.clear
@@ -64,15 +64,15 @@ class GoShoppingViewController : MasterViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if listBrain.shoppingListArray[indexPath.row].purchasedThatWeek == false {
+        if listBrain.shoppingListArray[indexPath.row].purchased == false {
         
-            listBrain.shoppingListArray[indexPath.row].purchasedThatWeek = !listBrain.shoppingListArray[indexPath.row].purchasedThatWeek
+            listBrain.shoppingListArray[indexPath.row].purchased = !listBrain.shoppingListArray[indexPath.row].purchased
             tableView.deselectRow(at: indexPath, animated: true)
             let element = listBrain.shoppingListArray.remove(at: indexPath.row)
             listBrain.shoppingListArray.append(element)
             
         } else {
-            listBrain.shoppingListArray[indexPath.row].purchasedThatWeek = !listBrain.shoppingListArray[indexPath.row].purchasedThatWeek
+            listBrain.shoppingListArray[indexPath.row].purchased = !listBrain.shoppingListArray[indexPath.row].purchased
             let element = listBrain.shoppingListArray.remove(at: indexPath.row)
             listBrain.shoppingListArray.insert(element, at: 0)
             tableView.deselectRow(at: indexPath, animated: true)
@@ -95,21 +95,12 @@ class GoShoppingViewController : MasterViewController {
                 orderOfPurchase += 1
             }
             
-            
             //part that resets and deletes all unrequired information
             
             var allMeals = [Meal]()
-            var allItems = [Item]()
-            
-            let itemRequest : NSFetchRequest<Item> = Item.createFetchRequest()
+        
             let mealRequest : NSFetchRequest<Meal> = Meal.createFetchRequest()
 
-            do {
-                allItems = try self.context.fetch(itemRequest)
-            } catch {
-                print("Error fetching data from context \(error)")
-            }
-            
             do {
                 allMeals = try self.context.fetch(mealRequest)
             } catch {
@@ -120,16 +111,18 @@ class GoShoppingViewController : MasterViewController {
                 meal.selectedMeal = false
             }
             
-            for item in allItems {
-                if item.categoryOfItem == "New" {
-                    self.context.delete(item)
-                } else if item.categoryOfItem == "Meal" {
-                    item.neededThatWeek = false
-                    item.selectedThatWeek = false
-                    item.purchasedThatWeek = false
+            for item in self.listBrain.shoppingListArray {
+                if item.newOrStaple == "New" {
+                    item.visible = false
+                    item.tickedOnList = false
+                    item.purchased = false
+                } else if item.newOrStaple == "Meal" {
+                    item.tickedOnList = false
+                    item.visible = false
+                    item.purchased = false
                 } else {
-                    item.neededThatWeek = false
-                    item.purchasedThatWeek = false
+                    item.tickedOnList = false
+                    item.purchased = false
                 }
             }
             

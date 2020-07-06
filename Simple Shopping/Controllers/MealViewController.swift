@@ -74,23 +74,6 @@ class MealViewController: MasterViewController {
         
         listBrain.fetchedMealsController.object(at: indexPath).selectedMeal = !listBrain.fetchedMealsController.object(at: indexPath).selectedMeal
         
-        let selectedMeal =  listBrain.fetchedMealsController.object(at: indexPath)
-        var selectedMealsItems = [Item]()
-        
-        let request : NSFetchRequest<Item> = Item.createFetchRequest()
-        let predicate = NSPredicate(format: "parentCategory.mealName MATCHES %@", selectedMeal.mealName)
-        request.predicate = predicate
-
-        do {
-            selectedMealsItems = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
-        
-        for item in selectedMealsItems {
-            item.selectedThatWeek = !item.selectedThatWeek
-        }
-        
         listBrain.saveItems()
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -106,7 +89,7 @@ class MealViewController: MasterViewController {
             
             let request : NSFetchRequest<Item> = Item.createFetchRequest()
 
-            let predicate = NSPredicate(format: "parentCategory.mealName MATCHES %@", selectedMeal.mealName)
+            let predicate = NSPredicate(format: "inMeal.mealName MATCHES %@", selectedMeal.mealName!)
 
             request.predicate = predicate
 
@@ -117,7 +100,8 @@ class MealViewController: MasterViewController {
             }
             
             for item in selectedMealsItems {
-                context.delete(item)
+                item.visible = false
+                item.removeFromInMeal(selectedMeal)
             }
             
             context.delete(listBrain.fetchedMealsController.object(at: indexPath))

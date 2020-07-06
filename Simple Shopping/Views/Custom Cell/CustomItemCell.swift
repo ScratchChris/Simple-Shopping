@@ -12,6 +12,8 @@ class CustomItemCell: UITableViewCell {
     
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var itemType: UILabel!
+    @IBOutlet weak var mealPlus: UILabel!
+    @IBOutlet weak var newStaplePlus: UILabel!
     @IBOutlet weak var quantity: UILabel!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
@@ -23,6 +25,10 @@ class CustomItemCell: UITableViewCell {
         super.awakeFromNib()
         itemType.layer.masksToBounds = true
         itemType.layer.cornerRadius = 5
+        newStaplePlus.layer.masksToBounds = true
+        newStaplePlus.layer.cornerRadius = 5
+        mealPlus.layer.masksToBounds = true
+        mealPlus.layer.cornerRadius = 5
 
     }
     @IBAction func plusTapped(_ sender: UIButton) {

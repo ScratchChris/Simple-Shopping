@@ -17,13 +17,14 @@ struct ListBrain {
     var fetchedItemsController: NSFetchedResultsController<Item>!
     var fetchedMealsController: NSFetchedResultsController<Meal>!
     var fetchedLocationsController: NSFetchedResultsController<Location>!
+    var fetchedShoppingTripsController: NSFetchedResultsController<ShoppingTrip>!
     var container: NSPersistentContainer!
     
     var shoppingListArray = [Item]()
     
     static var selectedMeal : Meal?
     
-    static var viewControllerLive = 0    
+    static var viewControllerLive = 0
     
     //MARK: Save Items
     func saveItems() {
@@ -47,7 +48,8 @@ struct ListBrain {
             fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
             fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
         }
-        let predicate = NSPredicate(format: "selectedThatWeek == true")
+
+        let predicate = NSPredicate(format: "visible == true && onShoppingList == true ")
         
         fetchedItemsController.fetchRequest.predicate = predicate
         
@@ -69,6 +71,7 @@ struct ListBrain {
             
             fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             fetchedMealsController.delegate = vc as? NSFetchedResultsControllerDelegate
+            
         }
         
         do {
@@ -89,7 +92,7 @@ struct ListBrain {
             fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
             fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
         }
-        let predicate = NSPredicate(format: "parentCategory.mealName MATCHES %@", ListBrain.selectedMeal!.mealName)
+        let predicate = NSPredicate(format: "ANY inMeal.mealName = %@  && visible = true" , ListBrain.selectedMeal!.mealName!)
         
         fetchedItemsController.fetchRequest.predicate = predicate
         
@@ -125,8 +128,7 @@ struct ListBrain {
         var unsortedList = [Item]()
         
         let request : NSFetchRequest<Item> = Item.createFetchRequest()
-        let predicate = NSPredicate(format: "neededThatWeek == true")
-        request.predicate = predicate
+        request.predicate = NSPredicate(format: "tickedOnList == true")
 
         do {
             unsortedList = try context.fetch(request)
@@ -135,7 +137,7 @@ struct ListBrain {
         }
         
         for item in unsortedList {
-            item.purchasedThatWeek = false
+            item.purchased = false
         }
         
         shoppingListArray = unsortedList.sorted(by: {$0.orderOfPurchase > $1.orderOfPurchase})
@@ -164,16 +166,52 @@ struct ListBrain {
                 [self, ac] _ in
                 guard let enteredItem = ac.textFields?[0].text else { return }
                 
-                let newItem = Item(context: self.context)
-                newItem.itemName = enteredItem
-                newItem.categoryOfItem = "New"
-                newItem.selectedThatWeek = true
-                newItem.purchasedThatWeek = false
-                newItem.itemLocation = location
-                newItem.orderOfPurchase = 0
-                
-                self.saveItems()
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+                //Checks to see if the item is already listed somewhere
+                let itemRequest : NSFetchRequest<Item> = Item.createFetchRequest()
+                itemRequest.predicate = NSPredicate(format: "itemName = %@", enteredItem)
+            
+                do {
+                    let fetchedItems = try context.fetch(itemRequest)
+                    
+                    //If something else is already made, and in a meal somewhere
+                    if fetchedItems.count != 0 && fetchedItems[0].visible == true && fetchedItems[0].inMeal?.allObjects.count != 0 {
+                        fetchedItems[0].newOrStaple = "New"
+                        fetchedItems[0].itemLocation = location
+                        self.saveItems()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+                    }
+                    
+                    //If Item is in the archive
+                    else if fetchedItems.count != 0 && fetchedItems[0].visible == false {
+                        fetchedItems[0].visible = true
+                        fetchedItems[0].newOrStaple = "New"
+                        fetchedItems[0].onShoppingList = true
+                        fetchedItems[0].itemLocation = location
+                        
+                    }
+                    
+                    //Already is in list as a staple or as a new item
+                    else if fetchedItems.count != 0 && fetchedItems[0].visible == true && fetchedItems[0].newOrStaple != nil {
+                    print("Item is already in as a staple or as a new item")
+                    }
+                    else {
+                    
+                        let newItem = Item(context: self.context)
+                        
+                        newItem.itemName = enteredItem
+                        newItem.newOrStaple = "New"
+                        newItem.visible = true
+                        newItem.onShoppingList = true
+                        newItem.purchased = false
+                        newItem.itemLocation = location
+                        newItem.orderOfPurchase = 0
+                        
+                        self.saveItems()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+                    }
+                } catch {
+                    print(error)
+                }
                 
             }
             ac.addAction(submitAction)
@@ -231,20 +269,63 @@ struct ListBrain {
                 [self, ac] _ in
                 guard let enteredItem = ac.textFields?[0].text else { return }
                 
-                let newItem = Item(context: self.context)
-                newItem.itemName = enteredItem
-                newItem.categoryOfItem = "Meal"
-                if ListBrain.selectedMeal?.selectedMeal == true {
-                    newItem.selectedThatWeek = true } else {
-                        newItem.selectedThatWeek = false
+                //Checks to see if the item is already listed somewhere
+                let itemRequest : NSFetchRequest<Item> = Item.createFetchRequest()
+                itemRequest.predicate = NSPredicate(format: "itemName = %@", enteredItem)
+            
+                do {
+                    let fetchedItems = try context.fetch(itemRequest)
+                    
+                    //If something else is already made, and in a meal somewhere
+                    if fetchedItems.count != 0 && fetchedItems[0].visible == true && fetchedItems[0].inMeal?.allObjects.count != 0 {
+                        fetchedItems[0].addToInMeal(ListBrain.selectedMeal!)
+                        fetchedItems[0].itemLocation = location
+                        self.saveItems()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMealItems"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
                     }
-                newItem.purchasedThatWeek = false
-                newItem.parentCategory = ListBrain.selectedMeal!
-                newItem.itemLocation = location
-                
-                self.saveItems()
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMealItems"), object: nil)
-                
+                    
+                    //If Item is in the archive
+                    else if fetchedItems.count != 0 && fetchedItems[0].visible == false {
+                        fetchedItems[0].addToInMeal(ListBrain.selectedMeal!)
+                        fetchedItems[0].visible = true
+                        fetchedItems[0].newOrStaple = nil
+                        if ListBrain.selectedMeal?.selectedMeal == true {
+                            fetchedItems[0].onShoppingList = true
+                        } else {
+                            fetchedItems[0].onShoppingList = false
+                        }
+                        fetchedItems[0].itemLocation = location
+                        self.saveItems()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMealItems"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+                        
+                    }
+                    
+                    else {
+                    
+                        let newItem = Item(context: self.context)
+                        
+                        newItem.itemName = enteredItem
+                        newItem.newOrStaple = nil
+                        newItem.visible = true
+                        if ListBrain.selectedMeal?.selectedMeal == true {
+                            newItem.onShoppingList = true
+                        } else {
+                            newItem.onShoppingList = false
+                        }
+                        newItem.purchased = false
+                        newItem.itemLocation = location
+                        newItem.orderOfPurchase = 0
+                        newItem.addToInMeal(ListBrain.selectedMeal!)
+                        
+                        self.saveItems()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadMealItems"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+                    }
+                } catch {
+                    print(error)
+                }
             }
             ac.addAction(submitAction)
         }
@@ -277,12 +358,5 @@ struct ListBrain {
         vc.present(ac, animated: true)
         
     }
-    
-
-    
-
-    
-    
-    
     
 }

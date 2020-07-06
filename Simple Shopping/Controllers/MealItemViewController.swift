@@ -60,6 +60,7 @@ class MealItemViewController: MasterViewController {
         
         let item = listBrain.fetchedItemsController.object(at: indexPath)
         cell.textLabel?.text = item.itemName
+
         
         return cell
     }
@@ -68,7 +69,9 @@ class MealItemViewController: MasterViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            context.delete(listBrain.fetchedItemsController.object(at: indexPath))
+            listBrain.fetchedItemsController.object(at: indexPath).visible = false
+            listBrain.fetchedItemsController.object(at: indexPath).removeFromInMeal(ListBrain.selectedMeal!)
+            
             listBrain.saveItems()
             listBrain.loadMealItems(vc: self)
             tableView.reloadData()
