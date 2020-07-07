@@ -177,6 +177,7 @@ struct ListBrain {
                     if fetchedItems.count != 0 && fetchedItems[0].visible == true && fetchedItems[0].inMeal?.allObjects.count != 0 {
                         fetchedItems[0].newOrStaple = "New"
                         fetchedItems[0].itemLocation = location
+                        fetchedItems[0].onShoppingList = true
                         self.saveItems()
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
                     }
@@ -276,8 +277,8 @@ struct ListBrain {
                 do {
                     let fetchedItems = try context.fetch(itemRequest)
                     
-                    //If something else is already made, and in a meal somewhere
-                    if fetchedItems.count != 0 && fetchedItems[0].visible == true && fetchedItems[0].inMeal?.allObjects.count != 0 {
+                    //If Item is already made, and visible in lists
+                    if fetchedItems.count != 0 && fetchedItems[0].visible == true {
                         fetchedItems[0].addToInMeal(ListBrain.selectedMeal!)
                         fetchedItems[0].itemLocation = location
                         self.saveItems()

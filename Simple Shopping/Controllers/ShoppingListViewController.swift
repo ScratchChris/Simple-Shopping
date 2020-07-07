@@ -193,15 +193,30 @@ class ShoppingListViewController: MasterViewController
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+        if listBrain.fetchedItemsController.object(at: indexPath).newOrStaple != nil {
+        
             if editingStyle == .delete {
                 
-                listBrain.fetchedItemsController.object(at: indexPath).visible = false
+                //if the item is not in a meal and has never been purchased - Delete the item completely
+                if listBrain.fetchedItemsController.object(at: indexPath).inMeal?.allObjects.count == 0 && listBrain.fetchedItemsController.object(at: indexPath).shoppingTripPurchased!.count == 0 {
+                    context.delete(listBrain.fetchedItemsController.object(at: indexPath))
+                }
                 
+                //if the item is not in a meal and has previously been purchased - Hide it from view
+                if listBrain.fetchedItemsController.object(at: indexPath).inMeal?.allObjects.count == 0 && listBrain.fetchedItemsController.object(at: indexPath).shoppingTripPurchased!.count != 0 {
+                    listBrain.fetchedItemsController.object(at: indexPath).visible = false
+                }
+                
+                //if the item is in a meal also - remove it's new/staple label so it remains in the meal
+                if listBrain.fetchedItemsController.object(at: indexPath).inMeal?.allObjects.count != 0 {
+                    listBrain.fetchedItemsController.object(at: indexPath).newOrStaple = nil
+                }
+
                 listBrain.saveItems()
                 listBrain.loadShoppingList(vc: self)
                 tableView.reloadData()
             }
-        
+        }
     }
 
     
