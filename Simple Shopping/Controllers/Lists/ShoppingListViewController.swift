@@ -43,9 +43,9 @@ class ShoppingListViewController: MasterViewController
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
         
-        tableView.separatorStyle = .none
+        
+        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
 

@@ -23,9 +23,11 @@ class MasterViewController: UITableViewController {
         notificationCenter.addObserver(self, selector: #selector(managedObjectContextObjectsDidChange), name: NSNotification.Name.NSManagedObjectContextObjectsDidChange, object: context)
         notificationCenter.addObserver(self, selector: #selector(managedObjectContextWillSave), name: NSNotification.Name.NSManagedObjectContextWillSave, object: context)
         notificationCenter.addObserver(self, selector: #selector(managedObjectContextDidSave), name: NSNotification.Name.NSManagedObjectContextDidSave, object: context)
+        
+        tableView.separatorStyle = .none
        
         tableView.register(UINib(nibName: "CustomItemCell", bundle: nil), forCellReuseIdentifier: "customItemCell")
-        tableView.register(UINib(nibName: "GoShoppingCell", bundle: nil), forCellReuseIdentifier: "goShoppingCell")
+        tableView.register(UINib(nibName: "CustomItemCell", bundle: nil), forCellReuseIdentifier: "goShoppingCell")
         tableView.register(UINib(nibName: "MealCell", bundle: nil), forCellReuseIdentifier: "mealCell")
     }
     

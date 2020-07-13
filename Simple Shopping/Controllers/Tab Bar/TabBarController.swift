@@ -45,6 +45,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         middleBtn.setIcon(icon: .fontAwesomeSolid(.plus), iconSize: 20.0, color: UIColor.white, backgroundColor: UIColor(named: "Green")!, forState: .normal)
         middleBtn.layer.cornerRadius = 0.5 * middleBtn.bounds.size.width
         
+        middleBtn.bringSubviewToFront(middleBtn)
+        
 //        GRADIENT FOR WHEN YOU WANT IT
 //        let gradientLayer = CAGradientLayer()
 //        gradientLayer.frame = middleBtn.bounds
@@ -96,7 +98,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             }
 
             if fromView != toView {
-              UIView.transition(from: fromView, to: toView, duration: 0.3, options: [.transitionCrossDissolve], completion: nil)
+                UIView.transition(from: fromView, to: toView, duration: 0.3, options: [.curveEaseIn], completion: nil)
             }
 
             return true

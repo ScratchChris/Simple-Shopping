@@ -20,9 +20,11 @@ struct ListBrain {
     var fetchedShoppingTripsController: NSFetchedResultsController<ShoppingTrip>!
     var container: NSPersistentContainer!
     
-    var shoppingListArray = [Item]()
-    
     static var selectedMeal : Meal?
+    
+    static var selectedShop : ShoppingTrip?
+    
+    var shoppingListArray = [Item]()
     
     static var viewControllerLive = 0
     
@@ -65,11 +67,14 @@ struct ListBrain {
         
         if fetchedItemsController == nil {
             let request = Meal.createFetchRequest()
-            let sort = NSSortDescriptor(key: "mealName", ascending: false)
+            //did say mealname
+            let sort = NSSortDescriptor(key: "shoppingTripPurchased.dateOfShop", ascending: false)
             request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
             
-            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "shoppingTripPurchased.dateOfShop", cacheName: nil)
+            
+//            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             fetchedMealsController.delegate = vc as? NSFetchedResultsControllerDelegate
             
         }
@@ -140,7 +145,50 @@ struct ListBrain {
             item.purchased = false
         }
         
-        shoppingListArray = unsortedList.sorted(by: {$0.orderOfPurchase > $1.orderOfPurchase})
+        shoppingListArray = unsortedList.sorted(by: {$0.orderOfPurchase < $1.orderOfPurchase})
+        
+    }
+    
+    mutating func loadPreviousShops(vc: UITableViewController) {
+        
+        if fetchedShoppingTripsController == nil {
+        
+        let request : NSFetchRequest<ShoppingTrip> = ShoppingTrip.createFetchRequest()
+        let sort = NSSortDescriptor(key: "dateOfShop", ascending: false)
+        request.sortDescriptors = [sort]
+        request.fetchBatchSize = 20
+            
+        fetchedShoppingTripsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedShoppingTripsController.delegate = vc as? NSFetchedResultsControllerDelegate
+        }
+    
+    do {
+        try fetchedShoppingTripsController.performFetch()
+    } catch {
+        print("Fetch failed")
+    }
+    }
+    
+    mutating func loadPreviousShopItems(vc: UITableViewController) {
+        
+        if fetchedItemsController == nil {
+            let request = Item.createFetchRequest()
+            let sort = NSSortDescriptor(key: "itemLocation.locationName", ascending: false)
+            request.sortDescriptors = [sort]
+            request.fetchBatchSize = 20
+            
+            fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
+            fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
+        }
+        let predicate = NSPredicate(format: "ANY shoppingTripPurchased.dateOfShop = %@" , ListBrain.selectedShop!.dateOfShop! as CVarArg)
+        
+        fetchedItemsController.fetchRequest.predicate = predicate
+        
+        do {
+            try fetchedItemsController.performFetch()
+        } catch {
+            print("Fetch failed")
+        }
         
     }
     
@@ -359,5 +407,7 @@ struct ListBrain {
         vc.present(ac, animated: true)
         
     }
+    
+    
     
 }

@@ -17,8 +17,6 @@ class GoShoppingCell: UITableViewCell {
     override func awakeFromNib() {
         super .awakeFromNib()
         
-        itemType.layer.masksToBounds = true
-        itemType.layer.cornerRadius = 5
     }
         
         

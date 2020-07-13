@@ -20,6 +20,7 @@ class MealViewController: MasterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listBrain.loadMeals(vc: self)
+        
         tableView.reloadData()
         
         title = "Meals"
@@ -43,6 +44,17 @@ class MealViewController: MasterViewController {
     }
     
     //MARK: TableView Methods
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        print(listBrain.fetchedMealsController.sections?.count)
+        print(listBrain.fetchedMealsController.sections?.first?.name)
+        return listBrain.fetchedMealsController.sections?.count ?? 0
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return listBrain.fetchedMealsController.sections![section].name
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = listBrain.fetchedMealsController.sections![section]

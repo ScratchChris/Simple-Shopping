@@ -16,13 +16,9 @@ class GoShoppingViewController : MasterViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         title = "Go Shopping"
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Finish Shop", style: .plain, target: self, action: #selector(completeShop))
-        
         listBrain.loadGoShopping(vc: self)
-        
         self.tabBarController?.tabBar.isHidden = true
 
        }
@@ -31,32 +27,100 @@ class GoShoppingViewController : MasterViewController {
         return listBrain.shoppingListArray.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> GoShoppingCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> CustomItemCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "goShoppingCell", for: indexPath) as! GoShoppingCell
-        // set the text from the data model
+        let cell = tableView.dequeueReusableCell(withIdentifier: "goShoppingCell", for: indexPath) as! CustomItemCell
         
         let item = listBrain.shoppingListArray[indexPath.row]
-
-        cell.itemName.text = item.itemName
-        cell.itemType.text = item.newOrStaple
-        cell.quantity.text = String(item.quantity)
+        var itemInSelectedMeal = 0
         
-        
-        if item.newOrStaple == "New" {
-            cell.itemType.backgroundColor = UIColor(named: "Green")
-        } else if item.newOrStaple == "Staple" {
-            cell.itemType.backgroundColor = UIColor(named: "Yellow")
-        } else if item.newOrStaple == "Meal" {
-            cell.itemType.backgroundColor = UIColor(named: "Blue")
+        let selectedMeals = item.inMeal?.allObjects as! [Meal]
+        if selectedMeals.count != 0 {
+            
+            for meal in selectedMeals {
+                if meal.selectedMeal == true {
+                    itemInSelectedMeal += 1
+                }
+            }
         }
         
+        cell.quantity.text = String(item.quantity)
+        cell.itemName.text = item.itemName
+        cell.plusButton.isHidden = true
+        cell.minusButton.isHidden = true
+        
+
+        //In Meal and nothing else
+        
+        if itemInSelectedMeal != 0 && item.newOrStaple == nil {
+            cell.mealPlus.isHidden = true
+            cell.newStaplePlus.isHidden = true
+            cell.itemType.isHidden = false
+            cell.itemType.backgroundColor = UIColor(named: "Blue")
+            if itemInSelectedMeal == 1 {
+                cell.itemType.text = "\(itemInSelectedMeal) Meal"
+            } else {
+                cell.itemType.text = "\(itemInSelectedMeal) Meals"
+            }
+        }
+        
+        //New Item and nothing else
+        else if itemInSelectedMeal == 0 && item.newOrStaple == "New" {
+            cell.mealPlus.isHidden = true
+            cell.newStaplePlus.isHidden = true
+            cell.itemType.isHidden = false
+            cell.itemType.backgroundColor = UIColor(named: "Green")
+            cell.itemType.text = "New"
+        }
+        
+        //Staple Item and nothing else
+        else if itemInSelectedMeal == 0 && item.newOrStaple == "Staple" {
+            cell.mealPlus.isHidden = true
+            cell.newStaplePlus.isHidden = true
+            cell.itemType.isHidden = false
+            cell.itemType.backgroundColor = UIColor(named: "Yellow")
+            cell.itemType.text = "Staple"
+        }
+        
+        //New Item and in a Meal
+        else if itemInSelectedMeal != 0 && item.newOrStaple == "New" {
+            cell.itemType.isHidden = true
+            
+            cell.mealPlus.backgroundColor = UIColor(named: "Blue")
+            cell.mealPlus.isHidden = false
+            cell.mealPlus.text = "\(itemInSelectedMeal)M"
+            
+            cell.newStaplePlus.text = "N"
+            cell.newStaplePlus.isHidden = false
+            cell.newStaplePlus.backgroundColor = UIColor(named: "Green")
+        }
+        
+        //Staple Item and in a meal
+        else if itemInSelectedMeal != 0 && item.newOrStaple == "Staple" {
+            cell.itemType.isHidden = true
+            
+            cell.mealPlus.backgroundColor = UIColor(named: "Blue")
+            cell.mealPlus.isHidden = false
+            cell.mealPlus.text = "\(itemInSelectedMeal) M"
+            
+            cell.newStaplePlus.text = "S"
+            cell.newStaplePlus.isHidden = false
+            cell.newStaplePlus.backgroundColor = UIColor(named: "Yellow")
+        }
+        
+        cell.quantity.text = String(item.quantity)
+        
         cell.accessoryType = item.purchased ? .checkmark : .none
+        
+        if item.orderOfPurchase == 0 {
+            print("true")
+            cell.backgroundColor = UIColor(named: "Red")
+        } else {
+            cell.backgroundColor = UIColor.clear
+        }
 
         if item.purchased == true {
             cell.backgroundColor = UIColor.gray
-        } else {
-            cell.backgroundColor = UIColor.clear
         }
 
         return cell
@@ -70,15 +134,21 @@ class GoShoppingViewController : MasterViewController {
             tableView.deselectRow(at: indexPath, animated: true)
             let element = listBrain.shoppingListArray.remove(at: indexPath.row)
             listBrain.shoppingListArray.append(element)
+            tableView.deselectRow(at: indexPath, animated: true)
+
             
         } else {
             listBrain.shoppingListArray[indexPath.row].purchased = !listBrain.shoppingListArray[indexPath.row].purchased
             let element = listBrain.shoppingListArray.remove(at: indexPath.row)
             listBrain.shoppingListArray.insert(element, at: 0)
             tableView.deselectRow(at: indexPath, animated: true)
+            
         }
         
-        listBrain.saveItems()
+//        listBrain.saveItems()
+        print("got here")
+        tableView.reloadData()
+        
     }
     
     @objc func completeShop() {
@@ -87,13 +157,27 @@ class GoShoppingViewController : MasterViewController {
         let yesAction = UIAlertAction(title: "Yes, I've finished", style: .default) { (UIAlertAction) in
             
             //part that sets the sort order of the shop.
+            let newShoppingTrip = ShoppingTrip(context: self.context)
+            newShoppingTrip.dateOfShop = Date()
             
             var orderOfPurchase: Int16 = 1
             
             for item in self.listBrain.shoppingListArray.reversed() {
-                item.orderOfPurchase = orderOfPurchase
+                
+                if self.listBrain.shoppingListArray.firstIndex(of: item)! > item.orderOfPurchase   {
+                    print("This item's position has changed")
+                    item.orderOfPurchase = Int16(self.listBrain.shoppingListArray.firstIndex(of: item)!)
+                } else {
+                    print("This items position has stayed the same")
+                }
                 orderOfPurchase += 1
+                
+                if item.purchased == true {
+                    newShoppingTrip.addToItemsPurchased(item)
+                }
             }
+            
+            
             
             //part that resets and deletes all unrequired information
             
@@ -108,10 +192,15 @@ class GoShoppingViewController : MasterViewController {
             }
             
             for meal in allMeals {
-                meal.selectedMeal = false
+                if meal.selectedMeal == true {
+                    newShoppingTrip.addToMealsPurchased(meal)
+                    meal.selectedMeal = false
+                }
+                
             }
             
             for item in self.listBrain.shoppingListArray {
+                
                 if item.newOrStaple == "New" {
                     item.visible = false
                     item.tickedOnList = false

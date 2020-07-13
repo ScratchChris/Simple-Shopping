@@ -183,6 +183,7 @@
                     <navigationItem key="navigationItem" id="jfp-UI-Q6M"/>
                     <connections>
                         <segue destination="fAn-U8-TZw" kind="show" identifier="showLocations" id="Zjj-3U-5pv"/>
+                        <segue destination="dii-Cn-CbL" kind="show" identifier="showPreviousShops" id="wMQ-PC-8AR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdr-Uc-cIs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -236,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TZd-SJ-wv2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutCell" id="TZd-SJ-wv2">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TZd-SJ-wv2" id="3Uo-oe-Xla">
@@ -255,6 +256,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3P-Ms-jvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1954" y="1559"/>
+        </scene>
+        <!--Previous Shops View Controller-->
+        <scene sceneID="AaB-PL-m27">
+            <objects>
+                <tableViewController id="dii-Cn-CbL" customClass="PreviousShopsViewController" customModule="Simple_Shopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zYC-lq-ib3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingTripCell" id="WZv-cH-0yE">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WZv-cH-0yE" id="WL3-b4-BbG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dii-Cn-CbL" id="JQ7-FA-5X4"/>
+                            <outlet property="delegate" destination="dii-Cn-CbL" id="iWA-Ey-IUO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="OKe-Wt-hex"/>
+                    <connections>
+                        <segue destination="zZD-ix-rsl" kind="show" identifier="showPreviousShopItems" id="6tN-Pt-gd5"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNI-D3-gcu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844" y="1567"/>
+        </scene>
+        <!--Previous Shop Items View Controller-->
+        <scene sceneID="0DU-xv-NpL">
+            <objects>
+                <tableViewController id="zZD-ix-rsl" customClass="PreviousShopItemsViewController" customModule="Simple_Shopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r6e-NL-Me3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="previousShopItem" id="yPc-Wz-8Pq">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yPc-Wz-8Pq" id="epb-ZC-5cU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zZD-ix-rsl" id="PCE-1b-7eo"/>
+                            <outlet property="delegate" destination="zZD-ix-rsl" id="k9I-ED-9Qe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="T4x-6c-B7h"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZ1-a9-bqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3536" y="1584"/>
         </scene>
         <!--Go Shopping View Controller-->
         <scene sceneID="Tzg-jR-IRW">

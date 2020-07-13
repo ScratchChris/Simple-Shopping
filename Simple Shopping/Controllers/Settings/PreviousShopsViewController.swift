@@ -1,22 +1,29 @@
-
 //
-//  TableViewController.swift
+//  PreviousShopsViewController.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 13/06/2020.
+//  Created by Chris Turner on 10/07/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class SettingsViewController: UITableViewController {
+class PreviousShopsViewController: UITableViewController {
+    
+    var listBrain = ListBrain()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Settings"
+        title = "Previous Shops"
+        
+        listBrain.loadPreviousShops(vc: self)
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -27,27 +34,26 @@ class SettingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        let sectionInfo = listBrain.fetchedShoppingTripsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settings", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingTripCell", for: indexPath)
 
-        cell.textLabel?.text = "Kitchen Locations"
+        let shoppingTrip = listBrain.fetchedShoppingTripsController.object(at: indexPath)
+        
+        cell.textLabel?.text = "\(shoppingTrip.dateOfShop)"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            performSegue(withIdentifier: "showLocations", sender: self)
-
-        }
+        ListBrain.selectedShop = listBrain.fetchedShoppingTripsController.object(at: indexPath)
+        self.performSegue(withIdentifier: "showPreviousShopItems", sender: self)
     }
-    
-    
+
 
     /*
     // Override to support conditional editing of the table view.
