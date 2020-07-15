@@ -184,11 +184,12 @@
                     <connections>
                         <segue destination="fAn-U8-TZw" kind="show" identifier="showLocations" id="Zjj-3U-5pv"/>
                         <segue destination="dii-Cn-CbL" kind="show" identifier="showPreviousShops" id="wMQ-PC-8AR"/>
+                        <segue destination="wQ1-aY-zmi" kind="show" identifier="showItemsList" id="bgS-ZD-5ba"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jdr-Uc-cIs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="885"/>
+            <point key="canvasLocation" x="1872" y="1559"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="A0j-Xw-XUM">
@@ -255,7 +256,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3P-Ms-jvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="1559"/>
+            <point key="canvasLocation" x="1045" y="2345"/>
         </scene>
         <!--Previous Shops View Controller-->
         <scene sceneID="AaB-PL-m27">
@@ -288,6 +289,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNI-D3-gcu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2844" y="1567"/>
+        </scene>
+        <!--Items List View Controller-->
+        <scene sceneID="I6O-xl-T5Z">
+            <objects>
+                <tableViewController id="wQ1-aY-zmi" userLabel="Items List View Controller" customClass="ItemsListViewController" customModule="Simple_Shopping" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MTg-1a-7NA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="completeListCell" id="X9n-Lu-CXL">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X9n-Lu-CXL" id="U2K-G9-Kj4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wQ1-aY-zmi" id="0uc-Zy-tcJ"/>
+                            <outlet property="delegate" destination="wQ1-aY-zmi" id="xiJ-fo-y6g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Ndw-ty-v69"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MB6-O8-Mwr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2843" y="2278"/>
         </scene>
         <!--Previous Shop Items View Controller-->
         <scene sceneID="0DU-xv-NpL">

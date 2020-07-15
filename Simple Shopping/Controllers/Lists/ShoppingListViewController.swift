@@ -11,14 +11,7 @@ import CoreData
 import MobileCoreServices
 
 
-class ShoppingListViewController: MasterViewController
-                                  
-//                                  UITableViewDragDelegate, UITableViewDropDelegate
-{
-    
-    //MARK: Variables
-    
-    var listBrain = ListBrain()
+class ShoppingListViewController: MasterViewController {
 
     //MARK: View Did Load/View Will Appear
     
@@ -184,7 +177,6 @@ class ShoppingListViewController: MasterViewController
         
         listBrain.fetchedItemsController.object(at: indexPath).tickedOnList = !listBrain.fetchedItemsController.object(at: indexPath).tickedOnList
     
-        listBrain.saveItems()
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -213,8 +205,8 @@ class ShoppingListViewController: MasterViewController
                 }
 
                 listBrain.saveItems()
-                listBrain.loadShoppingList(vc: self)
-                tableView.reloadData()
+//                listBrain.loadShoppingList(vc: self)
+//                tableView.reloadData()
             }
         }
     }

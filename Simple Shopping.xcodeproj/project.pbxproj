@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		593FCEBF9FA90AA30AD11D41 /* Pods_Simple_Shopping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97B5290B315D140A15787588 /* Pods_Simple_Shopping.framework */; };
+		E10AFA9424BE022D00D0D37F /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10AFA9324BE022D00D0D37F /* ItemsListViewController.swift */; };
 		E1185FC824AF465C003A6EE6 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC024AF465C003A6EE6 /* Location+CoreDataClass.swift */; };
 		E1185FC924AF465C003A6EE6 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC124AF465C003A6EE6 /* Location+CoreDataProperties.swift */; };
 		E1185FCA24AF465C003A6EE6 /* Meal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC224AF465C003A6EE6 /* Meal+CoreDataClass.swift */; };
@@ -47,6 +48,7 @@
 		3634489F1F4CE7E76A8F1633 /* Pods-Simple Shopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Shopping.debug.xcconfig"; path = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping.debug.xcconfig"; sourceTree = "<group>"; };
 		97B5290B315D140A15787588 /* Pods_Simple_Shopping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Shopping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E042E34959FC46A5ED6F7D2C /* Pods-Simple Shopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Shopping.release.xcconfig"; path = "Target Support Files/Pods-Simple Shopping/Pods-Simple Shopping.release.xcconfig"; sourceTree = "<group>"; };
+		E10AFA9324BE022D00D0D37F /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
 		E1185FC024AF465C003A6EE6 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		E1185FC124AF465C003A6EE6 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E1185FC224AF465C003A6EE6 /* Meal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -190,6 +192,7 @@
 				E1C8F3CE24967BC00005EACB /* LocationsViewController.swift */,
 				E132FB1324B8BB560027519D /* PreviousShopsViewController.swift */,
 				E132FB1824B8BFFA0027519D /* PreviousShopItemsViewController.swift */,
+				E10AFA9324BE022D00D0D37F /* ItemsListViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				E132FB1424B8BB560027519D /* PreviousShopsViewController.swift in Sources */,
 				E1608C1123D722FC00F27582 /* ShoppingListViewController.swift in Sources */,
 				E1C8F3CF24967BC00005EACB /* LocationsViewController.swift in Sources */,
+				E10AFA9424BE022D00D0D37F /* ItemsListViewController.swift in Sources */,
 				E121EBC224892D310013AFAF /* GoShoppingCell.swift in Sources */,
 				E121EBBF2487FB1D0013AFAF /* GoShoppingViewController.swift in Sources */,
 				E1B3C21A2461E49000F3D2E0 /* TabBarController.swift in Sources */,

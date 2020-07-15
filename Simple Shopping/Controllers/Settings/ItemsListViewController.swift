@@ -1,63 +1,50 @@
-
 //
-//  TableViewController.swift
+//  ItemsListViewController.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 13/06/2020.
+//  Created by Chris Turner on 14/07/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class SettingsViewController: MasterViewController {
-
-    var settingsOptions = ["Kitchen Locations","Previous Shops","Re-order Items"]
-    
+class ItemsListViewController: MasterViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Settings"
+        listBrain.loadCompleteList(vc: self)
         
+        title = "Reorder Items"
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return settingsOptions.count
+        return listBrain.completeListItems.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settings", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "completeListCell", for: indexPath)
 
-        cell.textLabel?.text = settingsOptions[indexPath.row]
+        let item = listBrain.completeListItems[indexPath.row]
         
+        cell.textLabel?.text = item.itemName
+
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            performSegue(withIdentifier: "showLocations", sender: self)
-        }
-            if indexPath.row == 1 {
-                performSegue(withIdentifier: "showPreviousShops", sender: self)
-            }
-        
-        if indexPath.row == 2 {
-            performSegue(withIdentifier: "showItemsList", sender: self)
-        }
-
-
-        }
-    
     
 
     /*

@@ -11,9 +11,6 @@ import CoreData
 
 class MealViewController: MasterViewController {
     
-    //MARK: Variables
-    
-    var listBrain = ListBrain()
     
     //MARK: ViewDidLoad and ViewWillAppear
     
@@ -46,8 +43,7 @@ class MealViewController: MasterViewController {
     //MARK: TableView Methods
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        print(listBrain.fetchedMealsController.sections?.count)
-        print(listBrain.fetchedMealsController.sections?.first?.name)
+        
         return listBrain.fetchedMealsController.sections?.count ?? 0
         
     }

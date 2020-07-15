@@ -8,9 +8,7 @@
 
 import UIKit
 
-class PreviousShopItemsViewController: UITableViewController {
-    
-    var listBrain = ListBrain()
+class PreviousShopItemsViewController: MasterViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

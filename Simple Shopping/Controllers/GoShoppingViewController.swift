@@ -11,8 +11,6 @@ import CoreData
 
 class GoShoppingViewController : MasterViewController {
     
-    var listBrain = ListBrain()
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()

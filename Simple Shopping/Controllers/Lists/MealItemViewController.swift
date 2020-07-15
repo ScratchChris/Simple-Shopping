@@ -10,10 +10,7 @@ import UIKit
 import CoreData
 
 class MealItemViewController: MasterViewController {
-    
-    //MARK: Variables
-    
-    var listBrain = ListBrain()
+
     
     //MARK: ViewDidLoad and ViewWillAppear
 

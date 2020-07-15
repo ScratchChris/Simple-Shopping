@@ -6,7 +6,6 @@
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 
-import Foundation
 import CoreData
 import UIKit
 
@@ -19,6 +18,8 @@ struct ListBrain {
     var fetchedLocationsController: NSFetchedResultsController<Location>!
     var fetchedShoppingTripsController: NSFetchedResultsController<ShoppingTrip>!
     var container: NSPersistentContainer!
+    
+    var completeListItems = [Item]()
     
     static var selectedMeal : Meal?
     
@@ -192,6 +193,17 @@ struct ListBrain {
         
     }
     
+    mutating func loadCompleteList(vc: UITableViewController) {
+        
+        let request : NSFetchRequest<Item> = Item.createFetchRequest()
+
+        do {
+            completeListItems = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+    }
+    
     //MARK: Adding Items/Meals Methods
     
     mutating func addItem(vc : TabBarController) {
@@ -227,7 +239,7 @@ struct ListBrain {
                         fetchedItems[0].itemLocation = location
                         fetchedItems[0].onShoppingList = true
                         self.saveItems()
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+//                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
                     }
                     
                     //If Item is in the archive
@@ -256,7 +268,7 @@ struct ListBrain {
                         newItem.orderOfPurchase = 0
                         
                         self.saveItems()
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
+//                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
                     }
                 } catch {
                     print(error)

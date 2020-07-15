@@ -13,6 +13,8 @@ class MasterViewController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var listBrain = ListBrain()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,7 +50,7 @@ class MasterViewController: UITableViewController {
                 print(update.changedValues())
             }
             print("+++++++++++++++")
-            
+    
         }
 
         if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>, deletes.count > 0 {
@@ -59,13 +61,67 @@ class MasterViewController: UITableViewController {
     }
 
     @objc func managedObjectContextWillSave(notification: NSNotification) {
-        tableView.reloadData()
     }
 
     @objc func managedObjectContextDidSave(notification: NSNotification) {
         
     }
     
-    
-    
 }
+
+extension MasterViewController: NSFetchedResultsControllerDelegate {
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+        print("This is doing something")
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+
+        
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break;
+        case .update:
+//            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? QuoteTableViewCell {
+////                configure(cell, at: indexPath)
+//            }
+            break;
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
+            break;
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+        default:
+            break;
+        }
+    }
+
+}
+
+
