@@ -12,12 +12,15 @@ class MealCell: UITableViewCell {
     
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var lastMade: UILabel!
     
     var buttonAction: ((Any) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        lastMade.layer.masksToBounds = true
+        lastMade.layer.cornerRadius = 5
 
     }
     

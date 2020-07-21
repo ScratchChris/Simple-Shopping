@@ -69,11 +69,11 @@ struct ListBrain {
         if fetchedItemsController == nil {
             let request = Meal.createFetchRequest()
             //did say mealname
-            let sort = NSSortDescriptor(key: "shoppingTripPurchased.dateOfShop", ascending: false)
+            let sort = NSSortDescriptor(key: "shoppingTripPurchased.dateOfShop", ascending: true)
             request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
             
-            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "shoppingTripPurchased.dateOfShop", cacheName: nil)
+            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             
 //            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             fetchedMealsController.delegate = vc as? NSFetchedResultsControllerDelegate

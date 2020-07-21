@@ -42,15 +42,43 @@ class MealViewController: MasterViewController {
     
     //MARK: TableView Methods
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return listBrain.fetchedMealsController.sections?.count ?? 0
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return listBrain.fetchedMealsController.sections![section].name
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return listBrain.fetchedMealsController.sections?.count ?? 0
+//
+//    }
+//
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String {
+//
+//        let isoDate = listBrain.fetchedMealsController.sections![section].name
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+//        let date = dateFormatter.date(from:isoDate)!
+//
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+//
+//        let finalDate = calendar.date(from:components)
+//
+//        let today = Date()
+//        let delta = today.timeIntervalSince(finalDate!)
+//        print(delta/60/60/24)
+//        let daysSinceMeal = delta/60/60/24
+//
+//        if daysSinceMeal < 7 {
+//            return "Last Few Days"
+//        } else if daysSinceMeal > 7 {
+//            return "Last Week"
+//        } else if daysSinceMeal > 14 {
+//            return "2 Weeks Ago"
+//        } else {
+//            return ""
+//        }
+//
+//
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = listBrain.fetchedMealsController.sections![section]
@@ -73,6 +101,35 @@ class MealViewController: MasterViewController {
         
         cell.mealName.text = meal.mealName
         cell.accessoryType = meal.selectedMeal ? .checkmark : .none
+        
+        //Date last made label
+        
+        let isoDate = (listBrain.fetchedMealsController.object(at: indexPath).shoppingTripPurchased?.dateOfShop)!
+
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+//        let date = dateFormatter.date(from:isoDate)!
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour], from: isoDate)
+        
+        let finalDate = calendar.date(from:components)
+        
+        let today = Date()
+        let delta = today.timeIntervalSince(finalDate!)
+        print(delta/60/60/24)
+        let daysSinceMeal = delta/60/60/24
+
+        if daysSinceMeal < 7 {
+            cell.lastMade.text = "Last Few Days"
+        } else if daysSinceMeal > 7 {
+            cell.lastMade.text = "Last Week"
+        } else if daysSinceMeal > 14 {
+            cell.lastMade.text = "2 Weeks Ago"
+        } else {
+            cell.lastMade.text = "Never Made"
+        }
         
         return cell
         
