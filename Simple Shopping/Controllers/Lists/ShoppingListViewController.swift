@@ -13,15 +13,11 @@ import MobileCoreServices
 
 class ShoppingListViewController: MasterViewController {
 
-    //MARK: View Did Load/View Will Appear
+    //MARK: -  View Did Load/View Will Appear
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-//        tableView.dragDelegate = self
-//        tableView.dropDelegate = self
-//        tableView.dragInteractionEnabled = true
     
         listBrain.loadShoppingList(vc: self)
         
@@ -49,14 +45,14 @@ class ShoppingListViewController: MasterViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
     }
     
-    //MARK: Notification to load list if something changes
+    //MARK: - Notification to load list if something changes
     
     @objc func loadList(notification: NSNotification){
         listBrain.loadShoppingList(vc: self)
         self.tableView.reloadData()
     }
     
-    //MARK: Table View Functions
+    //MARK: - Table View Functions
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return listBrain.fetchedItemsController.sections?.count ?? 0
@@ -154,15 +150,15 @@ class ShoppingListViewController: MasterViewController {
         
         cell.plusAction = { [self] sender in
                 // Do whatever you want from your button here.
-            listBrain.fetchedItemsController.object(at: indexPath).quantity += 1
-            listBrain.saveItems()
+            self.listBrain.fetchedItemsController.object(at: indexPath).quantity += 1
+            self.listBrain.saveItems()
         }
         
         cell.minusAction = { [self] sender in
               //Whatever your minus button did.
-            if listBrain.fetchedItemsController.object(at: indexPath).quantity == 1 { return } else {
-                listBrain.fetchedItemsController.object(at: indexPath).quantity -= 1
-                listBrain.saveItems()
+            if self.listBrain.fetchedItemsController.object(at: indexPath).quantity == 1 { return } else {
+                self.listBrain.fetchedItemsController.object(at: indexPath).quantity -= 1
+                self.listBrain.saveItems()
             }
             
         }
@@ -181,7 +177,7 @@ class ShoppingListViewController: MasterViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
-    //MARK: Swipe Methods
+    //MARK: -  Swipe Methods
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         

@@ -108,6 +108,9 @@ extension MasterViewController: NSFetchedResultsControllerDelegate {
                 tableView.insertRows(at: [newIndexPath], with: .fade)
             }
             break;
+       
+        @unknown default:
+            print("Not worked")
         }
     }
     

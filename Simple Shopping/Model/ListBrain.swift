@@ -231,7 +231,7 @@ struct ListBrain {
                 itemRequest.predicate = NSPredicate(format: "itemName = %@", enteredItem)
             
                 do {
-                    let fetchedItems = try context.fetch(itemRequest)
+                    let fetchedItems = try self.context.fetch(itemRequest)
                     
                     //If something else is already made, and in a meal somewhere
                     if fetchedItems.count != 0 && fetchedItems[0].visible == true && fetchedItems[0].inMeal?.allObjects.count != 0 {
@@ -335,7 +335,7 @@ struct ListBrain {
                 itemRequest.predicate = NSPredicate(format: "itemName = %@", enteredItem)
             
                 do {
-                    let fetchedItems = try context.fetch(itemRequest)
+                    let fetchedItems = try self.context.fetch(itemRequest)
                     
                     //If Item is already made, and visible in lists
                     if fetchedItems.count != 0 && fetchedItems[0].visible == true {

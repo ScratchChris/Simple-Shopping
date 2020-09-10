@@ -42,34 +42,7 @@
 		E1C8F3CD249550FE0005EACB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8F3CC249550FE0005EACB /* AboutViewController.swift */; };
 		E1C8F3CF24967BC00005EACB /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C8F3CE24967BC00005EACB /* LocationsViewController.swift */; };
 		E1CB9EB52468815000E937FC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CB9EB42468815000E937FC /* MasterViewController.swift */; };
-		E1F705B224C7275C0058D53E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F705B024C7275C0058D53E /* Interface.storyboard */; };
-		E1F705B424C7275E0058D53E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F705B324C7275E0058D53E /* Assets.xcassets */; };
-		E1F705BB24C7275E0058D53E /* Simple Shopping WatchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E1F705BA24C7275E0058D53E /* Simple Shopping WatchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E1F705C024C7275E0058D53E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F705BF24C7275E0058D53E /* InterfaceController.swift */; };
-		E1F705C224C7275E0058D53E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F705C124C7275E0058D53E /* ExtensionDelegate.swift */; };
-		E1F705C424C7275E0058D53E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F705C324C7275E0058D53E /* NotificationController.swift */; };
-		E1F705C624C7275E0058D53E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F705C524C7275E0058D53E /* ComplicationController.swift */; };
-		E1F705C824C727600058D53E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F705C724C727600058D53E /* Assets.xcassets */; };
-		E1F705CD24C727600058D53E /* Simple Shopping WatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E1F705AE24C7275C0058D53E /* Simple Shopping WatchOS.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E1F705D624C728230058D53E /* mealsAndItems.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E121EBCB2493AEFA0013AFAF /* mealsAndItems.xcdatamodeld */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E1F705BC24C7275E0058D53E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1608C0123D722FC00F27582 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1F705B924C7275E0058D53E;
-			remoteInfo = "Simple Shopping WatchOS Extension";
-		};
-		E1F705CB24C727600058D53E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1608C0123D722FC00F27582 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E1F705AD24C7275C0058D53E;
-			remoteInfo = "Simple Shopping WatchOS";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E1F705CE24C727600058D53E /* Embed Watch Content */ = {
@@ -78,20 +51,8 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				E1F705CD24C727600058D53E /* Simple Shopping WatchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1F705D124C727600058D53E /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				E1F705BB24C7275E0058D53E /* Simple Shopping WatchOS Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -136,18 +97,6 @@
 		E1C8F3CC249550FE0005EACB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = "Simple Shopping/Controllers/AboutViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E1C8F3CE24967BC00005EACB /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationsViewController.swift; path = "Simple Shopping/Controllers/Settings/LocationsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E1CB9EB42468815000E937FC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		E1F705AE24C7275C0058D53E /* Simple Shopping WatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Shopping WatchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1F705B124C7275C0058D53E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		E1F705B324C7275E0058D53E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E1F705B524C7275E0058D53E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1F705BA24C7275E0058D53E /* Simple Shopping WatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Simple Shopping WatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1F705BF24C7275E0058D53E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		E1F705C124C7275E0058D53E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		E1F705C324C7275E0058D53E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		E1F705C524C7275E0058D53E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		E1F705C724C727600058D53E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E1F705C924C727600058D53E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1F705CA24C727600058D53E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,13 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				593FCEBF9FA90AA30AD11D41 /* Pods_Simple_Shopping.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1F705B724C7275E0058D53E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				E1608C0B23D722FC00F27582 /* Simple Shopping */,
-				E1F705AF24C7275C0058D53E /* Simple Shopping WatchOS */,
-				E1F705BE24C7275E0058D53E /* Simple Shopping WatchOS Extension */,
 				E1608C0A23D722FC00F27582 /* Products */,
 				3561F1E09120B9C58E792845 /* Pods */,
 				57A3A375EAC918E82A74D779 /* Frameworks */,
@@ -284,8 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				E1608C0923D722FC00F27582 /* Simple Shopping.app */,
-				E1F705AE24C7275C0058D53E /* Simple Shopping WatchOS.app */,
-				E1F705BA24C7275E0058D53E /* Simple Shopping WatchOS Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,10 +243,10 @@
 		E1608C2323D723DE00F27582 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1608C1223D722FC00F27582 /* Main.storyboard */,
 				E121EBC5248A5E7A0013AFAF /* MealCell */,
 				E121EBC024892CFA0013AFAF /* GoShoppingCell */,
 				E122A2E323D89A0E00869AC7 /* Custom Cell */,
-				E1608C1223D722FC00F27582 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,30 +268,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E1F705AF24C7275C0058D53E /* Simple Shopping WatchOS */ = {
-			isa = PBXGroup;
-			children = (
-				E1F705B024C7275C0058D53E /* Interface.storyboard */,
-				E1F705B324C7275E0058D53E /* Assets.xcassets */,
-				E1F705B524C7275E0058D53E /* Info.plist */,
-			);
-			path = "Simple Shopping WatchOS";
-			sourceTree = "<group>";
-		};
-		E1F705BE24C7275E0058D53E /* Simple Shopping WatchOS Extension */ = {
-			isa = PBXGroup;
-			children = (
-				E1F705BF24C7275E0058D53E /* InterfaceController.swift */,
-				E1F705C124C7275E0058D53E /* ExtensionDelegate.swift */,
-				E1F705C324C7275E0058D53E /* NotificationController.swift */,
-				E1F705C524C7275E0058D53E /* ComplicationController.swift */,
-				E1F705C724C727600058D53E /* Assets.xcassets */,
-				E1F705C924C727600058D53E /* Info.plist */,
-				E1F705CA24C727600058D53E /* PushNotificationPayload.apns */,
-			);
-			path = "Simple Shopping WatchOS Extension";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,46 +285,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				E1F705CC24C727600058D53E /* PBXTargetDependency */,
 			);
 			name = "Simple Shopping";
 			productName = "Simple Shopping";
 			productReference = E1608C0923D722FC00F27582 /* Simple Shopping.app */;
 			productType = "com.apple.product-type.application";
-		};
-		E1F705AD24C7275C0058D53E /* Simple Shopping WatchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E1F705D524C727600058D53E /* Build configuration list for PBXNativeTarget "Simple Shopping WatchOS" */;
-			buildPhases = (
-				E1F705AC24C7275C0058D53E /* Resources */,
-				E1F705D124C727600058D53E /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E1F705BD24C7275E0058D53E /* PBXTargetDependency */,
-			);
-			name = "Simple Shopping WatchOS";
-			productName = "Simple Shopping WatchOS";
-			productReference = E1F705AE24C7275C0058D53E /* Simple Shopping WatchOS.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		E1F705B924C7275E0058D53E /* Simple Shopping WatchOS Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E1F705D424C727600058D53E /* Build configuration list for PBXNativeTarget "Simple Shopping WatchOS Extension" */;
-			buildPhases = (
-				E1F705B624C7275E0058D53E /* Sources */,
-				E1F705B724C7275E0058D53E /* Frameworks */,
-				E1F705B824C7275E0058D53E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Simple Shopping WatchOS Extension";
-			productName = "Simple Shopping WatchOS Extension";
-			productReference = E1F705BA24C7275E0058D53E /* Simple Shopping WatchOS Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -424,12 +303,6 @@
 				TargetAttributes = {
 					E1608C0823D722FC00F27582 = {
 						CreatedOnToolsVersion = 11.2;
-					};
-					E1F705AD24C7275C0058D53E = {
-						CreatedOnToolsVersion = 12.0;
-					};
-					E1F705B924C7275E0058D53E = {
-						CreatedOnToolsVersion = 12.0;
 					};
 				};
 			};
@@ -447,8 +320,6 @@
 			projectRoot = "";
 			targets = (
 				E1608C0823D722FC00F27582 /* Simple Shopping */,
-				E1F705AD24C7275C0058D53E /* Simple Shopping WatchOS */,
-				E1F705B924C7275E0058D53E /* Simple Shopping WatchOS Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -464,23 +335,6 @@
 				E1608C1923D722FE00F27582 /* Assets.xcassets in Resources */,
 				E121EBC424892D3B0013AFAF /* GoShoppingCell.xib in Resources */,
 				E1608C1423D722FC00F27582 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1F705AC24C7275C0058D53E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1F705B424C7275E0058D53E /* Assets.xcassets in Resources */,
-				E1F705B224C7275C0058D53E /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E1F705B824C7275E0058D53E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1F705C824C727600058D53E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,32 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E1F705B624C7275E0058D53E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1F705D624C728230058D53E /* mealsAndItems.xcdatamodeld in Sources */,
-				E1F705C424C7275E0058D53E /* NotificationController.swift in Sources */,
-				E1F705C624C7275E0058D53E /* ComplicationController.swift in Sources */,
-				E1F705C224C7275E0058D53E /* ExtensionDelegate.swift in Sources */,
-				E1F705C024C7275E0058D53E /* InterfaceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E1F705BD24C7275E0058D53E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1F705B924C7275E0058D53E /* Simple Shopping WatchOS Extension */;
-			targetProxy = E1F705BC24C7275E0058D53E /* PBXContainerItemProxy */;
-		};
-		E1F705CC24C727600058D53E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E1F705AD24C7275C0058D53E /* Simple Shopping WatchOS */;
-			targetProxy = E1F705CB24C727600058D53E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E1608C1223D722FC00F27582 /* Main.storyboard */ = {
@@ -606,14 +435,6 @@
 				E1608C1B23D722FE00F27582 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		E1F705B024C7275C0058D53E /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1F705B124C7275C0058D53E /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -773,90 +594,6 @@
 			};
 			name = Release;
 		};
-		E1F705CF24C727600058D53E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C2MU84W5P;
-				IBSC_MODULE = Simple_Shopping_WatchOS_Extension;
-				INFOPLIST_FILE = "Simple Shopping WatchOS/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.codingfromscratch.Simple-Shopping.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Debug;
-		};
-		E1F705D024C727600058D53E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C2MU84W5P;
-				IBSC_MODULE = Simple_Shopping_WatchOS_Extension;
-				INFOPLIST_FILE = "Simple Shopping WatchOS/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.codingfromscratch.Simple-Shopping.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Release;
-		};
-		E1F705D224C727600058D53E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C2MU84W5P;
-				INFOPLIST_FILE = "Simple Shopping WatchOS Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.codingfromscratch.Simple-Shopping.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Debug;
-		};
-		E1F705D324C727600058D53E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C2MU84W5P;
-				INFOPLIST_FILE = "Simple Shopping WatchOS Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.codingfromscratch.Simple-Shopping.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -874,24 +611,6 @@
 			buildConfigurations = (
 				E1608C2123D722FE00F27582 /* Debug */,
 				E1608C2223D722FE00F27582 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1F705D424C727600058D53E /* Build configuration list for PBXNativeTarget "Simple Shopping WatchOS Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E1F705D224C727600058D53E /* Debug */,
-				E1F705D324C727600058D53E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E1F705D524C727600058D53E /* Build configuration list for PBXNativeTarget "Simple Shopping WatchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E1F705CF24C727600058D53E /* Debug */,
-				E1F705D024C727600058D53E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -44,7 +44,7 @@ class PreviousShopsViewController: UITableViewController {
 
         let shoppingTrip = listBrain.fetchedShoppingTripsController.object(at: indexPath)
         
-        cell.textLabel?.text = "\(shoppingTrip.dateOfShop)"
+        cell.textLabel?.text = "\(String(describing: shoppingTrip.dateOfShop))"
         
         return cell
     }
