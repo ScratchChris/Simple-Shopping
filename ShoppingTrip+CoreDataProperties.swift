@@ -2,7 +2,7 @@
 //  ShoppingTrip+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 06/07/2020.
+//  Created by Chris Turner on 24/09/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -54,5 +54,9 @@ extension ShoppingTrip {
 
     @objc(removeMealsPurchased:)
     @NSManaged public func removeFromMealsPurchased(_ values: NSSet)
+
+}
+
+extension ShoppingTrip : Identifiable {
 
 }

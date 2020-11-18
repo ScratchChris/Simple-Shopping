@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class ItemsListViewController: MasterViewController {
+class ItemsListViewController: MasterViewController, UITableViewDragDelegate, UITableViewDropDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,80 +17,104 @@ class ItemsListViewController: MasterViewController {
         listBrain.loadCompleteList(vc: self)
         
         title = "Reorder Items"
+        
+        tableView.dragInteractionEnabled = true // Enable intra-app drags for iPhone.
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    //MARK: - Drag and Drop
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return listBrain.dragItems(for: indexPath)
+    }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
+    func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
+        return listBrain.canHandle(session)
+    }
+
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        // The .move operation is available only for dragging within a single app.
+        if tableView.hasActiveDrag {
+            if session.items.count > 1 {
+                return UITableViewDropProposal(operation: .cancel)
+            } else {
+                return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+            }
+        } else {
+            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        let destinationIndexPath: IndexPath
+            
+        if let indexPath = coordinator.destinationIndexPath {
+            destinationIndexPath = indexPath
+        } else {
+            // Get last index path of table view.
+            let section = tableView.numberOfSections - 1
+            let row = tableView.numberOfRows(inSection: section)
+            destinationIndexPath = IndexPath(row: row, section: section)
+        }
+        print("This is the destination index: \(destinationIndexPath)")
+        
+        coordinator.session.loadObjects(ofClass: NSString.self) { items in
+            // Consume drag items.
+            let stringItems = items as! [String]
+            print(stringItems)
+
+            for (_, item) in stringItems.enumerated() {
+
+                
+                var selectedItems = [Item]()
+                
+                let request : NSFetchRequest<Item> = Item.createFetchRequest()
+                
+                let predicate = NSPredicate(format: "itemName == %@", item)
+                
+                request.predicate = predicate
+                
+                do {
+                    selectedItems = try self.context.fetch(request)
+                } catch {
+                    print("Error fetching data from context \(error)")
+                }
+                
+                for item in selectedItems {
+                    item.itemLocation = self.listBrain.fetchedItemsController.object(at: IndexPath(row: 0, section: destinationIndexPath.section)).itemLocation
+                }
+                
+            }
+        }
     }
 
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listBrain.completeListItems.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "completeListCell", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> CustomItemCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customItemCell", for: indexPath) as! CustomItemCell
 
         let item = listBrain.completeListItems[indexPath.row]
         
-        cell.textLabel?.text = item.itemName
+        cell.itemName.text = item.itemName
+        
+        if item.orderOfPurchase == 0 {
+            cell.itemType.text = "Never Bought"
+        } else {
+            cell.itemType.text = String(item.orderOfPurchase)
+        }
+        
+        
 
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 06/07/2020.
+//  Created by Chris Turner on 24/09/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -36,5 +36,9 @@ extension Location {
 
     @objc(removeItemsAtLocation:)
     @NSManaged public func removeFromItemsAtLocation(_ values: NSSet)
+
+}
+
+extension Location : Identifiable {
 
 }

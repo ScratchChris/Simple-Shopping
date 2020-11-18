@@ -2,7 +2,7 @@
 //  Meal+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 06/07/2020.
+//  Created by Chris Turner on 24/09/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -38,5 +38,9 @@ extension Meal {
 
     @objc(removeMealItems:)
     @NSManaged public func removeFromMealItems(_ values: NSSet)
+
+}
+
+extension Meal : Identifiable {
 
 }

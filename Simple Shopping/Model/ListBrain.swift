@@ -8,6 +8,7 @@
 
 import CoreData
 import UIKit
+import MobileCoreServices
 
 struct ListBrain {
     
@@ -26,6 +27,7 @@ struct ListBrain {
     static var selectedShop : ShoppingTrip?
     
     var shoppingListArray = [Item]()
+    var completeListArray = [Item]()
     
     static var viewControllerLive = 0
     
@@ -45,7 +47,8 @@ struct ListBrain {
         if fetchedItemsController == nil {
             let request = Item.createFetchRequest()
             let sort = NSSortDescriptor(key: "itemLocation.locationName", ascending: false)
-            request.sortDescriptors = [sort]
+            let secondSort = NSSortDescriptor(key: "itemName", ascending: true)
+            request.sortDescriptors = [sort, secondSort]
             request.fetchBatchSize = 20
             
             fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
@@ -68,14 +71,12 @@ struct ListBrain {
         
         if fetchedItemsController == nil {
             let request = Meal.createFetchRequest()
-            //did say mealname
             let sort = NSSortDescriptor(key: "shoppingTripPurchased.dateOfShop", ascending: true)
             request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
             
             fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             
-//            fetchedMealsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             fetchedMealsController.delegate = vc as? NSFetchedResultsControllerDelegate
             
         }
@@ -92,7 +93,8 @@ struct ListBrain {
         if fetchedItemsController == nil {
             let request = Item.createFetchRequest()
             let sort = NSSortDescriptor(key: "itemLocation.locationName", ascending: false)
-            request.sortDescriptors = [sort]
+            let secondSort = NSSortDescriptor(key: "itemName", ascending: true)
+            request.sortDescriptors = [sort, secondSort]
             request.fetchBatchSize = 20
             
             fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
@@ -112,6 +114,7 @@ struct ListBrain {
     
     mutating func loadLocations(vc: UITableViewController) {
         
+        
         if fetchedLocationsController == nil {
             let request = Location.createFetchRequest()
             let sort = NSSortDescriptor(key: "locationName", ascending: false)
@@ -119,7 +122,7 @@ struct ListBrain {
             request.fetchBatchSize = 20
             
             fetchedLocationsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchedLocationsController.delegate = vc as? NSFetchedResultsControllerDelegate
+             fetchedLocationsController.delegate = vc as? NSFetchedResultsControllerDelegate
         }
         
         do {
@@ -127,6 +130,7 @@ struct ListBrain {
         } catch {
             print("Fetch failed")
         }
+        
     }
     
     mutating func loadGoShopping(vc: UITableViewController) {
@@ -147,6 +151,22 @@ struct ListBrain {
         }
         
         shoppingListArray = unsortedList.sorted(by: {$0.orderOfPurchase < $1.orderOfPurchase})
+        
+    }
+    
+    mutating func loadCompleteListPostShop(vc: UITableViewController) {
+        
+        var unsortedList = [Item]()
+        
+        let request : NSFetchRequest<Item> = Item.createFetchRequest()
+
+        do {
+            unsortedList = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        
+        completeListArray = unsortedList.sorted(by: {$0.orderOfPurchase < $1.orderOfPurchase})
         
     }
     
@@ -175,7 +195,8 @@ struct ListBrain {
         if fetchedItemsController == nil {
             let request = Item.createFetchRequest()
             let sort = NSSortDescriptor(key: "itemLocation.locationName", ascending: false)
-            request.sortDescriptors = [sort]
+            let secondSort = NSSortDescriptor(key: "itemName", ascending: true)
+            request.sortDescriptors = [sort, secondSort]
             request.fetchBatchSize = 20
             
             fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "itemLocation.locationName", cacheName: nil)
@@ -196,7 +217,11 @@ struct ListBrain {
     mutating func loadCompleteList(vc: UITableViewController) {
         
         let request : NSFetchRequest<Item> = Item.createFetchRequest()
-
+        
+        let sort = NSSortDescriptor(key: "orderOfPurchase", ascending: true)
+        request.sortDescriptors = [sort]
+        request.fetchBatchSize = 20
+        
         do {
             completeListItems = try context.fetch(request)
         } catch {
@@ -407,6 +432,7 @@ struct ListBrain {
             
             let newLocation = Location(context: self.context)
             newLocation.locationName = enteredItem
+            newLocation.itemsAtLocation = nil
             
             self.saveItems()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadLocations"), object: nil)
@@ -418,6 +444,36 @@ struct ListBrain {
         ac.addAction(submitAction)
         vc.present(ac, animated: true)
         
+    }
+    
+    //MARK: - Drag and Drop
+    
+    func canHandle(_ session: UIDropSession) -> Bool {
+        return session.canLoadObjects(ofClass: NSString.self)
+    }
+    
+    func dragItems(for indexPath: IndexPath) -> [UIDragItem] {
+        let item = fetchedItemsController.object(at: indexPath).itemName!
+
+        let data = item.data(using: .utf8)
+        let itemProvider = NSItemProvider()
+        
+        itemProvider.registerDataRepresentation(forTypeIdentifier: kUTTypePlainText as String, visibility: .all) { completion in
+            completion(data, nil)
+            return nil
+        }
+
+        return [
+            UIDragItem(itemProvider: itemProvider)
+        ]
+    }
+    
+    mutating func addDraggedItem(_ place: String, at index: IndexPath) {
+        print(place)
+        print(fetchedItemsController.object(at: index))
+        
+        print("This is the index: \(index)")
+//        fetchedItemsController.insert(place, at: index)
     }
     
     

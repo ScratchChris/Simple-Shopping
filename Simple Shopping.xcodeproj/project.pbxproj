@@ -182,8 +182,8 @@
 		E132FB1524B8BB690027519D /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				E122A2DD23D86D3E00869AC7 /* MealViewController.swift */,
 				E122A2DF23D86FC000869AC7 /* MealItemViewController.swift */,
+				E122A2DD23D86D3E00869AC7 /* MealViewController.swift */,
 				E1608C1023D722FC00F27582 /* ShoppingListViewController.swift */,
 			);
 			path = Lists;

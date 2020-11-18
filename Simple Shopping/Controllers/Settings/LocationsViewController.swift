@@ -14,35 +14,33 @@ class LocationsViewController: MasterViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listBrain.loadLocations(vc: self)
-        tableView.reloadData()
+        ListBrain.viewControllerLive = 3
+        
         title = "Kitchen Locations"
         
          NotificationCenter.default.addObserver(self, selector: #selector(loadLocations), name: NSNotification.Name(rawValue: "loadLocations"), object: nil)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
-    override func viewDidAppear(_ animated: Bool) {
-                ListBrain.viewControllerLive = 3
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ListBrain.viewControllerLive = 3
+        listBrain.loadLocations(vc: self)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
     }
+    
+    //MARK: Notification to Load Meals if something changes
+    
+    
     
     @objc func loadLocations(notification: NSNotification){
         listBrain.loadLocations(vc: self)
         self.tableView.reloadData()
     }
     
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("This is the section number \(section)")
         let sectionInfo = listBrain.fetchedLocationsController.sections![section]
         return sectionInfo.numberOfObjects
     }

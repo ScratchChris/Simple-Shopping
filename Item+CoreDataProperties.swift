@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 06/07/2020.
+//  Created by Chris Turner on 24/09/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -17,14 +17,14 @@ extension Item {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
-    @NSManaged public var newOrStaple: String?
     @NSManaged public var itemName: String?
-    @NSManaged public var tickedOnList: Bool
+    @NSManaged public var newOrStaple: String?
+    @NSManaged public var onShoppingList: Bool
     @NSManaged public var orderOfPurchase: Int16
     @NSManaged public var purchased: Bool
     @NSManaged public var quantity: Int16
+    @NSManaged public var tickedOnList: Bool
     @NSManaged public var visible: Bool
-    @NSManaged public var onShoppingList: Bool
     @NSManaged public var inMeal: NSSet?
     @NSManaged public var itemLocation: Location?
     @NSManaged public var shoppingTripPurchased: NSSet?
@@ -62,5 +62,9 @@ extension Item {
 
     @objc(removeShoppingTripPurchased:)
     @NSManaged public func removeFromShoppingTripPurchased(_ values: NSSet)
+
+}
+
+extension Item : Identifiable {
 
 }

@@ -8,20 +8,25 @@
 
 import UIKit
 import CoreData
-import MobileCoreServices
 
-
-class ShoppingListViewController: MasterViewController {
+class ShoppingListViewController: MasterViewController, UITableViewDragDelegate, UITableViewDropDelegate {
+    
 
     //MARK: -  View Did Load/View Will Appear
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-    
+        
+        tableView.dragInteractionEnabled = true // Enable intra-app drags for iPhone.
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
+
+        listBrain.loadLocations(vc: self)
         listBrain.loadShoppingList(vc: self)
         
         title = "List"
+        
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     
@@ -36,6 +41,10 @@ class ShoppingListViewController: MasterViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        ListBrain.viewControllerLive = 0
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
 
         ListBrain.viewControllerLive = 0
@@ -43,6 +52,73 @@ class ShoppingListViewController: MasterViewController {
         tableView.reloadData()
         self.tabBarController?.tabBar.isHidden = false
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
+    }
+    
+    //MARK: - Drag and Drop
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return listBrain.dragItems(for: indexPath)
+    }
+
+    
+    func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
+        return listBrain.canHandle(session)
+    }
+
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        // The .move operation is available only for dragging within a single app.
+        if tableView.hasActiveDrag {
+            if session.items.count > 1 {
+                return UITableViewDropProposal(operation: .cancel)
+            } else {
+                return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+            }
+        } else {
+            return UITableViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        let destinationIndexPath: IndexPath
+            
+        if let indexPath = coordinator.destinationIndexPath {
+            destinationIndexPath = indexPath
+        } else {
+            // Get last index path of table view.
+            let section = tableView.numberOfSections - 1
+            let row = tableView.numberOfRows(inSection: section)
+            destinationIndexPath = IndexPath(row: row, section: section)
+        }
+        print("This is the destination index: \(destinationIndexPath)")
+        
+        coordinator.session.loadObjects(ofClass: NSString.self) { items in
+            // Consume drag items.
+            let stringItems = items as! [String]
+            print(stringItems)
+
+            for (_, item) in stringItems.enumerated() {
+
+                
+                var selectedItems = [Item]()
+                
+                let request : NSFetchRequest<Item> = Item.createFetchRequest()
+                
+                let predicate = NSPredicate(format: "itemName == %@", item)
+                
+                request.predicate = predicate
+                
+                do {
+                    selectedItems = try self.context.fetch(request)
+                } catch {
+                    print("Error fetching data from context \(error)")
+                }
+                
+                for item in selectedItems {
+                    item.itemLocation = self.listBrain.fetchedItemsController.object(at: IndexPath(row: 0, section: destinationIndexPath.section)).itemLocation
+                }
+                
+            }
+        }
     }
     
     //MARK: - Notification to load list if something changes
@@ -152,6 +228,7 @@ class ShoppingListViewController: MasterViewController {
                 // Do whatever you want from your button here.
             self.listBrain.fetchedItemsController.object(at: indexPath).quantity += 1
             self.listBrain.saveItems()
+            self.tableView.reloadData()
         }
         
         cell.minusAction = { [self] sender in
@@ -159,6 +236,7 @@ class ShoppingListViewController: MasterViewController {
             if self.listBrain.fetchedItemsController.object(at: indexPath).quantity == 1 { return } else {
                 self.listBrain.fetchedItemsController.object(at: indexPath).quantity -= 1
                 self.listBrain.saveItems()
+                self.tableView.reloadData()
             }
             
         }
@@ -255,77 +333,6 @@ class ShoppingListViewController: MasterViewController {
         present(ac, animated: true)
         
     }
-    
-    //MARK: Drag and Drop Methods
-    
-//    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-//        print("Started Drag")
-//        let item = listBrain.fetchedItemsController.object(at: indexPath)
-//        let itemName = item.itemName
-//        let categoryOfItem = listBrain.fetchedItemsController.object(at: indexPath).categoryOfItem
-//
-//        guard let data = itemName!.data(using: .utf8) else { return [] }
-//            let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String)
-//
-//            return [UIDragItem(itemProvider: itemProvider)]
-//    }
-//
-//    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-//        let destinationIndexPath: IndexPath
-//
-//        print("got here")
-//
-//        var locationArray = [Location]()
-//
-//        if let indexPath = coordinator.destinationIndexPath {
-//            destinationIndexPath = indexPath
-//        } else {
-//            let section = tableView.numberOfSections - 1
-//            let row = tableView.numberOfRows(inSection: section)
-//            destinationIndexPath = IndexPath(row: row, section: section)
-//        }
-//
-//        // attempt to load strings from the drop coordinator
-//        coordinator.session.loadObjects(ofClass: NSString.self) { items in
-//            // convert the item provider array to a string array or bail out
-//            guard let strings = items as? [String] else { return }
-//
-//            // create an empty array to track rows we've copied
-//            var indexPaths = [IndexPath]()
-//
-//            let request : NSFetchRequest<Location> = Location.createFetchRequest()
-//
-//            do {
-//                locationArray = try self.context.fetch(request)
-//            } catch {
-//                print("Error fetching data from context \(error)")
-//            }
-//
-//            // loop over all the strings we received
-//            for (index, string) in strings.enumerated() {
-//                // create an index path for this new row, moving it down depending on how many we've already inserted
-//                let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
-//
-//
-//
-//                // insert the copy into the correct array
-//                let newItem = Item(context: self.context)
-//                newItem.itemName = string
-//                newItem.categoryOfItem = "New"
-//                newItem.selectedThatWeek = true
-//                newItem.purchasedThatWeek = false
-//                newItem.itemLocation = locationArray[indexPath.section]
-//                newItem.orderOfPurchase = 0
-//
-//                // keep track of this new row
-//                indexPaths.append(indexPath)
-//            }
-//
-//            // insert them all into the table view at once
-//            tableView.insertRows(at: indexPaths, with: .automatic)
-//        }
-//    }
-
     
 }
 
