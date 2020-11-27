@@ -44,24 +44,24 @@ class MasterViewController: UITableViewController {
         guard let userInfo = notification.userInfo else { return }
 
         if let inserts = userInfo[NSInsertedObjectsKey] as? Set<NSManagedObject>, inserts.count > 0 {
-            print("--- INSERTS ---")
-            print(inserts)
-            print("+++++++++++++++")
+//            print("--- INSERTS ---")
+//            print(inserts)
+//            print("+++++++++++++++")
         }
 
         if let updates = userInfo[NSUpdatedObjectsKey] as? Set<NSManagedObject>, updates.count > 0 {
-            print("--- UPDATES ---")
-            for update in updates {
-                print(update.changedValues())
-            }
-            print("+++++++++++++++")
+//            print("--- UPDATES ---")
+//            for update in updates {
+//                print(update.changedValues())
+//            }
+//            print("+++++++++++++++")
     
         }
 
         if let deletes = userInfo[NSDeletedObjectsKey] as? Set<NSManagedObject>, deletes.count > 0 {
-            print("--- DELETES ---")
-            print(deletes)
-            print("+++++++++++++++")
+//            print("--- DELETES ---")
+//            print(deletes)
+//            print("+++++++++++++++")
         }
     }
 

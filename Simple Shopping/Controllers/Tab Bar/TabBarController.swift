@@ -74,7 +74,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     @objc func menuButtonAction(sender: UIButton) {
-            print("Button Pressed")
         
         if ListBrain.viewControllerLive == 0 {
             listBrain.addItem(vc: self)

@@ -472,7 +472,7 @@ struct ListBrain {
         print(place)
         print(fetchedItemsController.object(at: index))
         
-        print("This is the index: \(index)")
+//        print("This is the index: \(index)")
 //        fetchedItemsController.insert(place, at: index)
     }
     

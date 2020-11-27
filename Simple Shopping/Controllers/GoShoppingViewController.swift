@@ -11,6 +11,8 @@ import CoreData
 
 class GoShoppingViewController : MasterViewController {
     
+    var orderOfPurchase: Int16 = 1
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -113,7 +115,6 @@ class GoShoppingViewController : MasterViewController {
         cell.accessoryType = item.purchased ? .checkmark : .none
         
         if item.orderOfPurchase == 0 {
-            print("true")
             cell.backgroundColor = UIColor(named: "Red")
         } else {
             cell.backgroundColor = UIColor.clear
@@ -134,6 +135,8 @@ class GoShoppingViewController : MasterViewController {
             tableView.deselectRow(at: indexPath, animated: true)
             let element = listBrain.shoppingListArray.remove(at: indexPath.row)
             listBrain.shoppingListArray.append(element)
+            element.orderInShop = orderOfPurchase
+            orderOfPurchase += 1
             tableView.deselectRow(at: indexPath, animated: true)
             
             
@@ -141,6 +144,8 @@ class GoShoppingViewController : MasterViewController {
             listBrain.shoppingListArray[indexPath.row].purchased = !listBrain.shoppingListArray[indexPath.row].purchased
             let element = listBrain.shoppingListArray.remove(at: indexPath.row)
             listBrain.shoppingListArray.insert(element, at: 0)
+            element.orderInShop = 0
+            orderOfPurchase -= 1
             tableView.deselectRow(at: indexPath, animated: true)
             
         }
@@ -179,11 +184,11 @@ class GoShoppingViewController : MasterViewController {
                     
                     //Finds the original item in the overall list.
                     completeItem = self.listBrain.completeListArray[self.listBrain.completeListArray.firstIndex(of: purchasedItem)!]
-                    let purchasedItemShopOrder = i+1
+                    let purchasedItemShopOrder = purchasedItem.orderInShop
                     let purchasedItemOriginalOrder = completeItem.orderOfPurchase
                     
                     //Works out whether the item bought is higher, lower or the same that the original item.
-                    let itemDifference = purchasedItemShopOrder - Int(purchasedItemOriginalOrder)
+                    let itemDifference = purchasedItemShopOrder - purchasedItemOriginalOrder
                     
                     switch itemDifference {
                     case 0  :
@@ -201,8 +206,8 @@ class GoShoppingViewController : MasterViewController {
                         
                         let itemPurchasedBefore = self.listBrain.shoppingListArray[i-1]
                         completeItemBefore = self.listBrain.completeListArray[self.listBrain.completeListArray.firstIndex(of: itemPurchasedBefore)!]
-                        let itemPurchasedBeforeShopOrder = i
-                            let itemPurchasedBeforeOriginalOrder = Int(completeItemBefore!.orderOfPurchase)
+                            let itemPurchasedBeforeShopOrder = itemPurchasedBefore.orderInShop
+                            let itemPurchasedBeforeOriginalOrder = completeItemBefore!.orderOfPurchase
                         
                         let itemBeforeDifference = itemPurchasedBeforeShopOrder - itemPurchasedBeforeOriginalOrder
                         
@@ -225,10 +230,10 @@ class GoShoppingViewController : MasterViewController {
                     else {
                         let itemPurchasedAfter = self.listBrain.shoppingListArray[i+1]
                         completeItemAfter = self.listBrain.completeListArray[self.listBrain.completeListArray.firstIndex(of: itemPurchasedAfter)!]
-                        let itemPurchasedAfterShopOrder = i+2
+                        let itemPurchasedAfterShopOrder = itemPurchasedAfter.orderInShop
                         let itemPurchasedAfterOriginalOrder = completeItemAfter!.orderOfPurchase
                         
-                        let itemAfterDifference = itemPurchasedAfterShopOrder - Int(itemPurchasedAfterOriginalOrder)
+                        let itemAfterDifference = itemPurchasedAfterShopOrder - itemPurchasedAfterOriginalOrder
                         
                         switch itemAfterDifference {
                         case 0  :
@@ -242,29 +247,37 @@ class GoShoppingViewController : MasterViewController {
                     
                     //Creates a constant that contains the three outputs from the above, which is then dropped into the switch statement to work out which function should be run on the item.
                     let itemAssessment = (itembefore: itemBeforeValue, item : itemValue, itemAfter: itemAfterValue)
-                    
+                    print(itemAssessment)
                     
                     switch itemAssessment {
                     
-                    case ("Nil", "Same", "Higher"), ("Same", "Lower", "Higher"), ("Same", "Higher","Same"), ("Same", "Higher", "Lower"), ("Same", "Higher", "Higher"), ("Same", "Higher","Nil"):
-                        #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                    case ("Nil", "Same", "Higher"), ("Same", "Lower", "Higher"), ("Same", "Higher","Same"), ("Same", "Higher", "Lower"), ("Same", "Higher", "Higher"), ("Same", "Higher","Nil"), ("Same", "Lower", "Nil"):
+                        print(completeItem.itemName)
+                        print("Green")
                         //Make +1 of item before, then shuffle on all other items
-                        self.changeOrderToPlusOneOfItemBefore(item: completeItem, itemBefore: completeItemAfter!)
+                        self.changeOrderToPlusOneOfItemBefore(item: completeItem, itemBefore: completeItemBefore!)
                         
                     case ("Nil","Lower","Same"), ("Nil", "Lower", "Higher"), ("Nil", "Higher", "Same"), ("Nil", "Higher", "Lower"):
-                        #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+                        print(completeItem.itemName)
+                        print("Blue")
+                        
                         //Make same order of item after, then shuffle all other items on
                         self.changeOrderToItemAfter(item: completeItem, itemAfter: completeItemAfter!)
                         
                     case ("Nil", "Higher", "Higher"):
-                        #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+                        print(completeItem.itemName)
+                        print("Red")
+                        
                        //Keep going through items until it finds one with an order, then back populate all new items, then shuffle pack on
                         self.findItemWithOrderAfter(item: completeItem)
                        
                     default:
                        
                         //Don't need to do anything at all for this one.
+                        
                         print("Default")
+                        
+                        self.noChange(item:completeItem)
                         
                     }
                     
@@ -325,8 +338,38 @@ class GoShoppingViewController : MasterViewController {
         present(ac, animated: true)
     }
     
-    func changeOrderToPlusOneOfItemBefore(item : Item, itemBefore : Item) {
+    func noChange(item: Item) {
+        let orderInBigList = item.orderOfPurchase
         
+        item.orderInShop = orderInBigList
+    }
+    
+    func changeOrderToPlusOneOfItemBefore(item : Item, itemBefore : Item) {
+        //Green option.
+        
+        if item.orderOfPurchase < itemBefore.orderOfPurchase {
+            item.orderOfPurchase = itemBefore.orderOfPurchase + 1
+            item.orderInShop = itemBefore.orderOfPurchase + 1
+            var orderToUse = item.orderInShop
+            
+            for i in Int(item.orderInShop-1)...listBrain.completeListArray.count - 1 {
+                listBrain.completeListArray[i].orderOfPurchase = item.orderInShop + 1
+                orderToUse += 1
+            }
+            
+            listBrain.loadCompleteList(vc: self)
+            
+            var newOrder : Int16 = 1
+            
+            for item in listBrain.completeListArray {
+                item.orderOfPurchase = newOrder
+                newOrder += 1
+            }
+        } else {
+            let orderInBigList = item.orderOfPurchase
+            
+            item.orderInShop = orderInBigList
+        }
     }
     
     func changeOrderToItemAfter(item : Item, itemAfter: Item) {
@@ -335,98 +378,27 @@ class GoShoppingViewController : MasterViewController {
     
     func findItemWithOrderAfter(item : Item) {
         
+        var orderOfPurchase : Int16 = 1
+        
+        
+        for item in listBrain.completeListArray {
+            item.orderOfPurchase = orderOfPurchase
+            orderOfPurchase += 1
+        }
+        
+        /*
+         
+         1. No order of purchase
+         2. No order of purchase
+         3. no order of purchase
+         4. Order of 1
+         
+         */
+        
+        listBrain.saveItems()
+        
     }
     
-    //                if purchasedItem.purchased == true {
-    //
-    //                    //Adds the item to the shopping trip history
-    //                    newShoppingTrip.addToItemsPurchased(purchasedItem)
-    //
-    //                    //Finds the original item
-    //                    let completeItem = self.listBrain.completeListArray[self.listBrain.completeListArray.firstIndex(of: purchasedItem)!]
-    //
-    //                    //If the item has never been bought before.
-    //                    if completeItem.orderOfPurchase == 0 {
-    //
-    //                        //Sets the order of purchase to where it was bought in the shop + 1
-    //                        completeItem.orderOfPurchase = Int16(orderInShop)
-    //
-    //
-    //                        var newOrder = Int(completeItem.orderOfPurchase) + 1
-    //                        if completeItem.orderOfPurchase != self.listBrain.completeListArray.count {
-    //                            for i in Int(completeItem.orderOfPurchase) ..< self.listBrain.completeListArray.count - 1 {
-    //                                if self.listBrain.completeListArray[i].orderOfPurchase == 0 {
-    //
-    //                                } else {
-    //                                self.listBrain.completeListArray[i].orderOfPurchase = Int16(newOrder)
-    //                                newOrder += 1
-    //                                }
-    //                                self.listBrain.saveItems()
-    //                            }
-    //                        } else {
-    //
-    //                        }
-    //
-    //                    //If it has been bought before section
-    //
-    //                    //If original order of purchase is higher than where it was bought in the shop.
-    //                    } else if completeItem.orderOfPurchase > orderInShop {
-    //
-    //                        //Bananas was at position 4, but instead has been bought 3rd.
-    //
-    //                        if i == 0 {
-    //                            //very first item bought, so cannot check items before it in the purchased list
-    //
-    //                            //find the item bought after it in the original list
-    //                            let itemAfter = self.listBrain.shoppingListArray[i+1]
-    //                            let completeItemAfter = self.listBrain.completeListArray[self.listBrain.completeListArray.firstIndex(of: itemAfter)!]
-    //
-    //                            //if the item bought after also has original order of purchase as higher
-    //                            if i+1 < completeItemAfter.orderOfPurchase {
-    //                                //leave the number as it is
-    //                            } else {
-    //                                //item after has a lower original order and is a change of order.
-    //                            }
-    //
-    //
-    //                        } else {
-    //
-    //                            //find the item bought before it in the original list
-    //                            let itemBefore = self.listBrain.shoppingListArray[i - 1]
-    //                            let completeItemBefore = self.listBrain.completeListArray[self.listBrain.completeListArray.firstIndex(of: itemBefore)!]
-    //
-    //                            //if the item bought before the item in question also has original order of purchase as higher
-    //                            if i-1 < completeItemBefore.orderOfPurchase {
-    //                                //leave the number as it is
-    //                            } else {
-    //
-    //                                //if the item bought before has a lower original order of purchase, this confuses things, that is a change of order.
-    //
-    //                            completeItem.orderOfPurchase = completeItemBefore.orderOfPurchase + 1
-    //                            var newOrder = Int(completeItem.orderOfPurchase) + 1
-    //                            for i in Int(completeItem.orderOfPurchase) ..< self.listBrain.completeListArray.count - 1 {
-    //
-    //                                self.listBrain.completeListArray[i].orderOfPurchase = Int16(newOrder)
-    //                                newOrder += 1
-    //                            }
-    //                            }
-    //
-    //                        }
-    //                    }
-    //
-    //
-    //                    else if completeItem.orderOfPurchase < orderInShop {
-    //
-    //                        //If original order of purchase is lower than where it was bought in the shop.
-    //
-    //                        //Bananas was at position 3, but has now been purchased 4th.
-    //
-    //                        //Leave the same for now, but need to work on code to assess if the shop has moved around based on other items purchased
-    //
-    //
-    //                    }
-    //
-    //                } else {  }
     
 }
 

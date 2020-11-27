@@ -15,8 +15,8 @@
 		E1185FCB24AF465C003A6EE6 /* Meal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC324AF465C003A6EE6 /* Meal+CoreDataProperties.swift */; };
 		E1185FCC24AF465C003A6EE6 /* ShoppingTrip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC424AF465C003A6EE6 /* ShoppingTrip+CoreDataClass.swift */; };
 		E1185FCD24AF465C003A6EE6 /* ShoppingTrip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC524AF465C003A6EE6 /* ShoppingTrip+CoreDataProperties.swift */; };
-		E1185FCE24AF465C003A6EE6 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC624AF465C003A6EE6 /* Item+CoreDataClass.swift */; };
-		E1185FCF24AF465C003A6EE6 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1185FC724AF465C003A6EE6 /* Item+CoreDataProperties.swift */; };
+		E11E0A39256E91E100E02E8A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E0A37256E91E100E02E8A /* Item+CoreDataClass.swift */; };
+		E11E0A3A256E91E100E02E8A /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11E0A38256E91E100E02E8A /* Item+CoreDataProperties.swift */; };
 		E121EBBF2487FB1D0013AFAF /* GoShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E121EBBE2487FB1D0013AFAF /* GoShoppingViewController.swift */; };
 		E121EBC224892D310013AFAF /* GoShoppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E121EBC124892D310013AFAF /* GoShoppingCell.swift */; };
 		E121EBC424892D3B0013AFAF /* GoShoppingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E121EBC324892D3B0013AFAF /* GoShoppingCell.xib */; };
@@ -68,8 +68,8 @@
 		E1185FC324AF465C003A6EE6 /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E1185FC424AF465C003A6EE6 /* ShoppingTrip+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingTrip+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		E1185FC524AF465C003A6EE6 /* ShoppingTrip+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingTrip+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		E1185FC624AF465C003A6EE6 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		E1185FC724AF465C003A6EE6 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		E11E0A37256E91E100E02E8A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "Pods/Item+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		E11E0A38256E91E100E02E8A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "Pods/Item+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		E121EBBE2487FB1D0013AFAF /* GoShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoShoppingViewController.swift; sourceTree = "<group>"; };
 		E121EBC124892D310013AFAF /* GoShoppingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoShoppingCell.swift; path = "Simple Shopping/Views/Custom Cell/GoShoppingCell.swift"; sourceTree = SOURCE_ROOT; };
 		E121EBC324892D3B0013AFAF /* GoShoppingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoShoppingCell.xib; sourceTree = "<group>"; };
@@ -254,14 +254,14 @@
 		E1608C2423D7241800F27582 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E11E0A37256E91E100E02E8A /* Item+CoreDataClass.swift */,
+				E11E0A38256E91E100E02E8A /* Item+CoreDataProperties.swift */,
 				E1185FC024AF465C003A6EE6 /* Location+CoreDataClass.swift */,
 				E1185FC124AF465C003A6EE6 /* Location+CoreDataProperties.swift */,
 				E1185FC224AF465C003A6EE6 /* Meal+CoreDataClass.swift */,
 				E1185FC324AF465C003A6EE6 /* Meal+CoreDataProperties.swift */,
 				E1185FC424AF465C003A6EE6 /* ShoppingTrip+CoreDataClass.swift */,
 				E1185FC524AF465C003A6EE6 /* ShoppingTrip+CoreDataProperties.swift */,
-				E1185FC624AF465C003A6EE6 /* Item+CoreDataClass.swift */,
-				E1185FC724AF465C003A6EE6 /* Item+CoreDataProperties.swift */,
 				E121EBCB2493AEFA0013AFAF /* mealsAndItems.xcdatamodeld */,
 				E144B185249CC33900140BB5 /* ListBrain.swift */,
 			);
@@ -396,7 +396,6 @@
 				E121EBC224892D310013AFAF /* GoShoppingCell.swift in Sources */,
 				E121EBBF2487FB1D0013AFAF /* GoShoppingViewController.swift in Sources */,
 				E1B3C21A2461E49000F3D2E0 /* TabBarController.swift in Sources */,
-				E1185FCE24AF465C003A6EE6 /* Item+CoreDataClass.swift in Sources */,
 				E1185FC824AF465C003A6EE6 /* Location+CoreDataClass.swift in Sources */,
 				E122A2DE23D86D3F00869AC7 /* MealViewController.swift in Sources */,
 				E1185FCC24AF465C003A6EE6 /* ShoppingTrip+CoreDataClass.swift in Sources */,
@@ -406,10 +405,11 @@
 				E1B3C21C2461E4E300F3D2E0 /* MyTabBar.swift in Sources */,
 				E121EBCD2493AEFB0013AFAF /* mealsAndItems.xcdatamodeld in Sources */,
 				E1185FC924AF465C003A6EE6 /* Location+CoreDataProperties.swift in Sources */,
+				E11E0A39256E91E100E02E8A /* Item+CoreDataClass.swift in Sources */,
 				E121EBC7248A5E8E0013AFAF /* MealCell.swift in Sources */,
 				E144B186249CC33900140BB5 /* ListBrain.swift in Sources */,
 				E1185FCA24AF465C003A6EE6 /* Meal+CoreDataClass.swift in Sources */,
-				E1185FCF24AF465C003A6EE6 /* Item+CoreDataProperties.swift in Sources */,
+				E11E0A3A256E91E100E02E8A /* Item+CoreDataProperties.swift in Sources */,
 				E122A2E023D86FC000869AC7 /* MealItemViewController.swift in Sources */,
 				E122A2E723D89A2D00869AC7 /* CustomItemCell.swift in Sources */,
 				E1C8F3CB249550370005EACB /* SettingsViewController.swift in Sources */,

@@ -69,12 +69,11 @@ class MealItemViewController: MasterViewController, UITableViewDragDelegate, UIT
             let row = tableView.numberOfRows(inSection: section)
             destinationIndexPath = IndexPath(row: row, section: section)
         }
-        print("This is the destination index: \(destinationIndexPath)")
+//        print("This is the destination index: \(destinationIndexPath)")
         
         coordinator.session.loadObjects(ofClass: NSString.self) { items in
             // Consume drag items.
             let stringItems = items as! [String]
-            print(stringItems)
 
             for (_, item) in stringItems.enumerated() {
 

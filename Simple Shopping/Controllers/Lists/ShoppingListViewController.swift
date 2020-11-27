@@ -94,7 +94,6 @@ class ShoppingListViewController: MasterViewController, UITableViewDragDelegate,
         coordinator.session.loadObjects(ofClass: NSString.self) { items in
             // Consume drag items.
             let stringItems = items as! [String]
-            print(stringItems)
 
             for (_, item) in stringItems.enumerated() {
 

@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 24/09/2020.
+//  Created by Chris Turner on 25/11/2020.
 //  Copyright © 2020 Chris Turner. All rights reserved.
 //
 //
@@ -13,7 +13,7 @@ import CoreData
 
 extension Item {
 
-    @nonobjc public class func createFetchRequest() -> NSFetchRequest<Item> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Item> {
         return NSFetchRequest<Item>(entityName: "Item")
     }
 
@@ -25,6 +25,7 @@ extension Item {
     @NSManaged public var quantity: Int16
     @NSManaged public var tickedOnList: Bool
     @NSManaged public var visible: Bool
+    @NSManaged public var orderInShop: Int16
     @NSManaged public var inMeal: NSSet?
     @NSManaged public var itemLocation: Location?
     @NSManaged public var shoppingTripPurchased: NSSet?

@@ -59,8 +59,6 @@ class MealViewController: MasterViewController {
             // Do whatever you want from your button here.
             ListBrain.selectedMeal = self.listBrain.fetchedMealsController.object(at: indexPath)
             self.performSegue(withIdentifier: "showMealItems", sender: self)
-            print("Button Pressed")
-            print(indexPath)
         }
         
         cell.mealName.text = meal.mealName
