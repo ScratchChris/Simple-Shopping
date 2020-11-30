@@ -251,21 +251,21 @@ class GoShoppingViewController : MasterViewController {
                     
                     switch itemAssessment {
                     
-                    case ("Nil", "Same", "Higher"), ("Same", "Lower", "Higher"), ("Same", "Higher","Same"), ("Same", "Higher", "Lower"), ("Same", "Higher", "Higher"), ("Same", "Higher","Nil"), ("Same", "Lower", "Nil"):
-                        print(completeItem.itemName)
+                    case ("Nil", "Same", "Higher"), ("Same", "Lower", "Higher"), ("Same", "Higher","Same"), ("Same", "Higher", "Lower"), ("Same", "Higher", "Higher"), ("Same", "Higher","Nil"), ("Same", "Lower", "Nil"), ("Same", "Lower", "Lower"):
+                        print("\(completeItem.itemName!)")
                         print("Green")
                         //Make +1 of item before, then shuffle on all other items
                         self.changeOrderToPlusOneOfItemBefore(item: completeItem, itemBefore: completeItemBefore!)
                         
                     case ("Nil","Lower","Same"), ("Nil", "Lower", "Higher"), ("Nil", "Higher", "Same"), ("Nil", "Higher", "Lower"):
-                        print(completeItem.itemName)
+                        print("\(completeItem.itemName!)")
                         print("Blue")
                         
                         //Make same order of item after, then shuffle all other items on
                         self.changeOrderToItemAfter(item: completeItem, itemAfter: completeItemAfter!)
                         
                     case ("Nil", "Higher", "Higher"):
-                        print(completeItem.itemName)
+                        print("\(completeItem.itemName!)")
                         print("Red")
                         
                        //Keep going through items until it finds one with an order, then back populate all new items, then shuffle pack on
@@ -274,7 +274,7 @@ class GoShoppingViewController : MasterViewController {
                     default:
                        
                         //Don't need to do anything at all for this one.
-                        
+                        print("\(completeItem.itemName!)")
                         print("Default")
                         
                         self.noChange(item:completeItem)
@@ -347,25 +347,32 @@ class GoShoppingViewController : MasterViewController {
     func changeOrderToPlusOneOfItemBefore(item : Item, itemBefore : Item) {
         //Green option.
         
+        print("In the green function")
+        
         if item.orderOfPurchase < itemBefore.orderOfPurchase {
-            item.orderOfPurchase = itemBefore.orderOfPurchase + 1
-            item.orderInShop = itemBefore.orderOfPurchase + 1
-            var orderToUse = item.orderInShop
+            print("Green reorder")
+            item.orderOfPurchase = itemBefore.orderOfPurchase
+            itemBefore.orderOfPurchase = item.orderOfPurchase - 1
+            item.orderInShop = item.orderOfPurchase
             
-            for i in Int(item.orderInShop-1)...listBrain.completeListArray.count - 1 {
-                listBrain.completeListArray[i].orderOfPurchase = item.orderInShop + 1
-                orderToUse += 1
+            for item in listBrain.completeListArray {
+                print ("\(item.itemName) - \(item.orderOfPurchase)")
             }
             
-            listBrain.loadCompleteList(vc: self)
+            listBrain.loadCompleteListPostShop(vc: self)
             
             var newOrder : Int16 = 1
             
             for item in listBrain.completeListArray {
+                print(item.itemName)
+                print(item.orderOfPurchase)
                 item.orderOfPurchase = newOrder
+                print("new order \(item.orderOfPurchase)")
                 newOrder += 1
             }
+            
         } else {
+            print("green leave the same")
             let orderInBigList = item.orderOfPurchase
             
             item.orderInShop = orderInBigList
@@ -373,7 +380,25 @@ class GoShoppingViewController : MasterViewController {
     }
     
     func changeOrderToItemAfter(item : Item, itemAfter: Item) {
+        //blue
+        item.orderOfPurchase = itemAfter.orderOfPurchase
+        item.orderInShop = itemAfter.orderOfPurchase
         
+        var orderToUse = item.orderInShop
+        
+        for i in Int(item.orderInShop)...listBrain.completeListArray.count - 1 {
+            listBrain.completeListArray[i].orderOfPurchase = item.orderInShop + 1
+            orderToUse += 1
+        }
+        
+        listBrain.loadCompleteList(vc: self)
+        
+        var newOrder : Int16 = 1
+        
+        for item in listBrain.completeListArray {
+            item.orderOfPurchase = newOrder
+            newOrder += 1
+        }
     }
     
     func findItemWithOrderAfter(item : Item) {

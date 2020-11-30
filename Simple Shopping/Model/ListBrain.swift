@@ -166,7 +166,9 @@ struct ListBrain {
             print("Error fetching data from context \(error)")
         }
         
-        completeListArray = unsortedList.sorted(by: {$0.orderOfPurchase < $1.orderOfPurchase})
+        completeListArray = unsortedList.sorted {
+            $0.orderOfPurchase < $1.orderOfPurchase
+        }
         
     }
     
