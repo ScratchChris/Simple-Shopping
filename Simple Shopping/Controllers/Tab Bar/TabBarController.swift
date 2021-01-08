@@ -26,14 +26,18 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
     
-        setupMiddleButton()
-        tabBar.items?[0].setIcon(icon: .googleMaterialDesign(.list), size: nil, textColor: .lightGray)
+        
+        
+        tabBar.items?[0].setIcon(icon: .googleMaterialDesign(.list), size: CGSize(width: 30, height: 30), textColor: .lightGray)
         tabBar.items?[1].setIcon(icon: .emoji(.forkKnifePlate), size: nil, textColor: .lightGray)
     
-        tabBar.items?[1].titlePositionAdjustment = UIOffset(horizontal: -30, vertical: 0.0)
-        tabBar.items?[2].titlePositionAdjustment = UIOffset(horizontal: 30, vertical: 0.0)
+        tabBar.items?[0].titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5.0)
+        tabBar.items?[1].titlePositionAdjustment = UIOffset(horizontal: -30, vertical: -5.0)
+        tabBar.items?[2].titlePositionAdjustment = UIOffset(horizontal: 30, vertical: -5.0)
         
         NotificationCenter.default.addObserver(self, selector: #selector(buttonColor), name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
+        
+        setupMiddleButton()
 
    }
     
@@ -45,7 +49,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         middleBtn.setIcon(icon: .fontAwesomeSolid(.plus), iconSize: 20.0, color: UIColor.white, backgroundColor: UIColor(named: "Green")!, forState: .normal)
         middleBtn.layer.cornerRadius = 0.5 * middleBtn.bounds.size.width
         
-        middleBtn.bringSubviewToFront(middleBtn)
+        
         
 //        GRADIENT FOR WHEN YOU WANT IT
 //        let gradientLayer = CAGradientLayer()
@@ -58,7 +62,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         //add to the tabbar and add click event
         self.tabBar.addSubview(middleBtn)
         middleBtn.addTarget(self, action: #selector(self.menuButtonAction), for: .touchUpInside)
-
+        middleBtn.bringSubviewToFront(middleBtn)
         self.view.layoutIfNeeded()
     }
 
@@ -68,8 +72,23 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         if ListBrain.viewControllerLive == 1 {
             middleBtn.backgroundColor = UIColor(named: "Blue")
-        } else {
+            middleBtn.isHidden = false
+            middleBtn.isEnabled = true
+        } else if ListBrain.viewControllerLive == 0 {
             middleBtn.backgroundColor = UIColor(named: "Green")
+            middleBtn.isHidden = false
+            middleBtn.isEnabled = true
+        } else if ListBrain.viewControllerLive == 3 {
+            middleBtn.backgroundColor = UIColor(named: "Green")
+            middleBtn.isHidden = false
+            middleBtn.isEnabled = true
+        } else if ListBrain.viewControllerLive == 2 {
+            middleBtn.backgroundColor = UIColor(named: "Green")
+            middleBtn.isHidden = false
+            middleBtn.isEnabled = true
+        } else {
+            middleBtn.isHidden = true
+            middleBtn.isEnabled = false
         }
     }
     

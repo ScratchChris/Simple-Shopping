@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r4p-ib-qAu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r4p-ib-qAu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,7 +76,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gC-a7-Mme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="550"/>
+            <point key="canvasLocation" x="-332" y="585"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="AOz-Xu-dIR">
@@ -142,7 +143,9 @@
         <scene sceneID="Otf-qv-mHo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b3Z-bl-GtU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Meals" id="NcE-CM-6Po"/>
+                    <tabBarItem key="tabBarItem" title="Meals" id="NcE-CM-6Po">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ImK-uA-Vxv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -381,7 +384,11 @@
         <scene sceneID="eQm-3C-lYA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ef2-Gm-9Su" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="RBA-vw-xar"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="RBA-vw-xar">
+                        <imageReference key="image" image="gear" catalog="system" symbolScale="medium"/>
+                        <imageReference key="selectedImage" image="gear" catalog="system" symbolScale="medium"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3vU-gP-WaP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -400,7 +407,11 @@
         <scene sceneID="4mA-BX-bmc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fhp-b1-tIB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="About" image="person" catalog="system" selectedImage="person" id="OMe-3g-He4"/>
+                    <tabBarItem key="tabBarItem" title="About" id="OMe-3g-He4">
+                        <imageReference key="image" image="person" catalog="system" symbolScale="medium"/>
+                        <imageReference key="selectedImage" image="person" catalog="system" symbolScale="medium"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cB1-vq-Hsi">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

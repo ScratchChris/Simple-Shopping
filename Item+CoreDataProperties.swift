@@ -2,8 +2,8 @@
 //  Item+CoreDataProperties.swift
 //  Simple Shopping
 //
-//  Created by Chris Turner on 25/11/2020.
-//  Copyright © 2020 Chris Turner. All rights reserved.
+//  Created by Chris Turner on 07/01/2021.
+//  Copyright © 2021 Chris Turner. All rights reserved.
 //
 //
 
@@ -20,12 +20,13 @@ extension Item {
     @NSManaged public var itemName: String?
     @NSManaged public var newOrStaple: String?
     @NSManaged public var onShoppingList: Bool
+    @NSManaged public var orderInShop: Int16
     @NSManaged public var orderOfPurchase: Int16
     @NSManaged public var purchased: Bool
     @NSManaged public var quantity: Int16
     @NSManaged public var tickedOnList: Bool
     @NSManaged public var visible: Bool
-    @NSManaged public var orderInShop: Int16
+    @NSManaged public var beenClickedOn: Bool
     @NSManaged public var inMeal: NSSet?
     @NSManaged public var itemLocation: Location?
     @NSManaged public var shoppingTripPurchased: NSSet?

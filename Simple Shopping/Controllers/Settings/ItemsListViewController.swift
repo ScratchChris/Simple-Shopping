@@ -15,6 +15,7 @@ class ItemsListViewController: MasterViewController, UITableViewDragDelegate, UI
         super.viewDidLoad()
         
         listBrain.loadCompleteList(vc: self)
+        listBrain.loadReorderList(vc: self)
         
         title = "Reorder Items"
         
@@ -64,7 +65,6 @@ class ItemsListViewController: MasterViewController, UITableViewDragDelegate, UI
         coordinator.session.loadObjects(ofClass: NSString.self) { items in
             // Consume drag items.
             let stringItems = items as! [String]
-            print(stringItems)
 
             for (_, item) in stringItems.enumerated() {
 
@@ -90,6 +90,7 @@ class ItemsListViewController: MasterViewController, UITableViewDragDelegate, UI
             }
         }
     }
+    
 
     // MARK: - Table view data source
 

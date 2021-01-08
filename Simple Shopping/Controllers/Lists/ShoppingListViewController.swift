@@ -43,6 +43,8 @@ class ShoppingListViewController: MasterViewController, UITableViewDragDelegate,
     
     override func viewDidAppear(_ animated: Bool) {
         ListBrain.viewControllerLive = 0
+        listBrain.loadShoppingList(vc: self)
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -242,6 +244,12 @@ class ShoppingListViewController: MasterViewController, UITableViewDragDelegate,
     
         cell.accessoryType = item.tickedOnList ? .checkmark : .none
         
+        if item.beenClickedOn == true {
+            cell.backgroundColor = item.tickedOnList ? .systemGreen : .systemRed
+        } else {
+            cell.backgroundColor = .clear
+        }
+        
         return cell
         
     }
@@ -249,11 +257,17 @@ class ShoppingListViewController: MasterViewController, UITableViewDragDelegate,
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         listBrain.fetchedItemsController.object(at: indexPath).tickedOnList = !listBrain.fetchedItemsController.object(at: indexPath).tickedOnList
-    
+        
+        if  listBrain.fetchedItemsController.object(at: indexPath).beenClickedOn == false {
+            listBrain.fetchedItemsController.object(at: indexPath).beenClickedOn = true
+        }
+        
         tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        listBrain.saveItems()
     }
+
+    
     //MARK: -  Swipe Methods
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

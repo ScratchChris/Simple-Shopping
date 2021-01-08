@@ -75,7 +75,6 @@ class MealViewController: MasterViewController {
         
         let today = Date()
         let delta = today.timeIntervalSince(finalDate!)
-        print(delta/60/60/24)
         daysSinceMeal = delta/60/60/24
         } else {
             daysSinceMeal = -1
@@ -119,6 +118,8 @@ class MealViewController: MasterViewController {
             
             for item in selectedMealsItems {
                 
+                print(item.itemName)
+                
                 var itemInSelectedMeal = 0
                 
                 let selectedMeals = item.inMeal?.allObjects as! [Meal]
@@ -133,17 +134,13 @@ class MealViewController: MasterViewController {
                 
                 //If an item is already a new or staple - Don't change OnShoppingList value
                 if item.newOrStaple != nil {
-                    return
+                    
                 }
                 
                 //If an item isn't a new or staple, add to list (Doesn't matter if it's in another meal)
                 else if item.newOrStaple == nil {
                     item.onShoppingList = true
                 }
-                listBrain.saveItems()
-                tableView.deselectRow(at: indexPath, animated: true)
-                tableView.reloadData()
-                
             }
         }
         
@@ -166,12 +163,12 @@ class MealViewController: MasterViewController {
                 
                 //If an item is already a new or staple - Don't change OnShoppingList value
                 if item.newOrStaple != nil {
-                    return
+                    
                 }
                 
                 //If an item isn't a new or staple, check if it's in any other selected meals - If not, remove/add from list
                 else if item.newOrStaple == nil && itemInSelectedMeal != 0 {
-                    return
+                    
                 }
                 
                 else if item.newOrStaple == nil && itemInSelectedMeal == 0 {
@@ -179,11 +176,11 @@ class MealViewController: MasterViewController {
                 }
                 
             }
-            listBrain.saveItems()
-            tableView.deselectRow(at: indexPath, animated: true)
-            tableView.reloadData()
         
         }
+        listBrain.saveItems()
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
         
     }
         

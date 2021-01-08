@@ -21,6 +21,12 @@ class SettingsViewController: MasterViewController {
         title = "Settings"
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        ListBrain.viewControllerLive = 2
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "buttonColor"), object: nil)
+
+    }
 
     // MARK: - Table view data source
 

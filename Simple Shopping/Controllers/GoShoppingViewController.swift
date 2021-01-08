@@ -262,6 +262,8 @@ class GoShoppingViewController : MasterViewController {
                         print("Blue")
                         
                         //Make same order of item after, then shuffle all other items on
+                        
+                        
                         self.changeOrderToItemAfter(item: completeItem, itemAfter: completeItemAfter!)
                         
                     case ("Nil", "Higher", "Higher"):
@@ -307,10 +309,15 @@ class GoShoppingViewController : MasterViewController {
                 
             }
             
+            for item in self.listBrain.completeListItems {
+                item.beenClickedOn = false
+            }
+            
             for item in self.listBrain.shoppingListArray {
                 
                 item.tickedOnList = false
                 item.purchased = false
+               
                 
                 
                 if item.newOrStaple == "New" {
@@ -394,18 +401,6 @@ class GoShoppingViewController : MasterViewController {
         for item in listBrain.completeListArray {
             print ("\(item.itemName) - \(item.orderOfPurchase)")
         }
-//        var orderToUse = item.orderInShop
-//
-//        if orderToUse < listBrain.completeListArray.count - 1 {
-//
-//        for i in Int(item.orderInShop - 1)...listBrain.completeListArray.count - 1 {
-//
-//            listBrain.completeListArray[i].orderOfPurchase = orderToUse
-//            orderToUse += 1
-//        }
-//        } else { }
-//
-//        listBrain.loadCompleteListPostShop(vc: self)
         
         var newOrder : Int16 = 1
         

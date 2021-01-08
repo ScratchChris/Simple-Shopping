@@ -231,6 +231,26 @@ struct ListBrain {
         }
     }
     
+    mutating func loadReorderList(vc: UITableViewController) {
+        
+        let request : NSFetchRequest<Item> = Item.createFetchRequest()
+        
+        let sort = NSSortDescriptor(key: "orderOfPurchase", ascending: true)
+        request.sortDescriptors = [sort]
+        request.fetchBatchSize = 20
+        
+        fetchedItemsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedItemsController.delegate = vc as? NSFetchedResultsControllerDelegate
+        
+        
+        do {
+            try fetchedItemsController.performFetch()
+        } catch {
+            print("Fetch failed")
+        }
+        
+    }
+    
     //MARK: Adding Items/Meals Methods
     
     mutating func addItem(vc : TabBarController) {
@@ -294,12 +314,14 @@ struct ListBrain {
                         newItem.itemLocation = location
                         newItem.orderOfPurchase = 0
                         
-                        self.saveItems()
+//                        self.saveItems()
 //                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
                     }
                 } catch {
                     print(error)
                 }
+                self.saveItems()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadShoppingList"), object: nil)
                 
             }
             ac.addAction(submitAction)
@@ -453,13 +475,13 @@ struct ListBrain {
     func canHandle(_ session: UIDropSession) -> Bool {
         return session.canLoadObjects(ofClass: NSString.self)
     }
-    
+
     func dragItems(for indexPath: IndexPath) -> [UIDragItem] {
         let item = fetchedItemsController.object(at: indexPath).itemName!
 
         let data = item.data(using: .utf8)
         let itemProvider = NSItemProvider()
-        
+
         itemProvider.registerDataRepresentation(forTypeIdentifier: kUTTypePlainText as String, visibility: .all) { completion in
             completion(data, nil)
             return nil
@@ -469,11 +491,11 @@ struct ListBrain {
             UIDragItem(itemProvider: itemProvider)
         ]
     }
-    
+
     mutating func addDraggedItem(_ place: String, at index: IndexPath) {
         print(place)
         print(fetchedItemsController.object(at: index))
-        
+
 //        print("This is the index: \(index)")
 //        fetchedItemsController.insert(place, at: index)
     }
